@@ -54,16 +54,16 @@
             line-height: 1.2;
         }
 
-        h1 { font-size: clamp(2.5rem, 5vw, 3.75rem); }
+        h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); } /* Larger text for text-only hero */
         h2 { font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 1rem; }
         h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
         h4 { font-size: 1.1rem; font-weight: 600; }
         
         p { margin-bottom: 1.25rem; }
-        .lead { font-weight: 500; line-height: 1.6; color: var(--secondary); }
+        .lead { font-weight: 500; line-height: 1.6; color: var(--secondary); font-size: 1.15rem; }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.25rem; }
+            h1 { font-size: 2.5rem; }
             h2 { font-size: 1.75rem; }
             p { font-size: 1rem; }
         }
@@ -99,94 +99,31 @@
             background: var(--accent-light);
         }
 
-        /* Hero Section */
+        /* Hero Section - Text Only */
         #hero {
-            padding: 4rem 0;
+            padding: 8rem 0 6rem; /* Generous vertical spacing */
             position: relative;
             overflow: hidden;
+            text-align: center; /* Center alignment for impact */
         }
 
         .hero-blob {
             position: absolute;
-            top: -10%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, rgba(255,255,255,0) 70%);
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, rgba(255,255,255,0) 70%);
             border-radius: 50%;
             z-index: -1;
-        }
-
-        /* CSS-only Hero Graphic */
-        .hero-graphic {
-            position: relative;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .graphic-card {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .gc-1 {
-            width: 280px;
-            height: 360px;
-            z-index: 2;
-            background: linear-gradient(135deg, #ffffff, #f1f5f9);
-            transform: rotate(-5deg) translateY(-20px);
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .gc-2 {
-            width: 260px;
-            height: 340px;
-            z-index: 1;
-            background: #e2e8f0;
-            top: 20px;
-            right: 40px;
-            transform: rotate(5deg);
-        }
-
-        .gc-3 {
-            width: 240px;
-            height: 320px;
-            z-index: 3;
-            background: var(--primary);
-            bottom: 20px;
-            left: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
-            animation: float 6s ease-in-out infinite reverse;
-        }
-
-        .gc-icon { font-size: 4rem; margin-bottom: 1rem; }
-        .gc-line { width: 60%; height: 8px; background: rgba(255,255,255,0.3); border-radius: 4px; margin-bottom: 10px; }
-        .gc-line.short { width: 40%; }
-
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(-5deg); }
-            50% { transform: translateY(-15px) rotate(-5deg); }
-            100% { transform: translateY(0px) rotate(-5deg); }
+            pointer-events: none;
         }
 
         /* Buttons */
         .btn {
             font-weight: 600;
-            padding: 0.75rem 1.5rem;
+            padding: 0.85rem 2rem; /* Slightly larger buttons */
             border-radius: 50px;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             font-size: 1rem;
@@ -318,7 +255,7 @@
         }
 
         .project-header {
-            height: 200px;
+            height: 180px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -401,25 +338,31 @@
                 padding-bottom: 3rem !important;
             }
             
+            #hero { padding: 5rem 0 4rem; }
+            
             .timeline { margin-left: 0; }
             .timeline-item::before { left: -29px; }
             
-            .hero-stats { gap: 1.5rem; margin-top: 1.5rem !important; }
-            .hero-stats h3 { font-size: 1.75rem; }
+            .hero-stats { 
+                display: grid; 
+                grid-template-columns: 1fr; 
+                gap: 1.5rem; 
+                margin-top: 2rem !important; 
+                max-width: 300px; 
+                margin-left: auto; 
+                margin-right: auto;
+            }
+            .hero-stats h3 { font-size: 2rem; }
             
             .hero-actions {
                 display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 0.75rem;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                max-width: 300px;
+                margin: 0 auto;
             }
             
             .btn { width: 100%; }
-            
-            .hero-graphic { height: 300px; }
-            .gc-1 { width: 200px; height: 260px; }
-            .gc-2 { width: 190px; height: 250px; }
-            .gc-3 { width: 180px; height: 240px; }
-            .gc-icon { font-size: 3rem; }
         }
     </style>
 </head>
@@ -446,25 +389,25 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Text Focused, Centered -->
     <header id="hero" class="section-padding-mobile">
         <div class="hero-blob"></div>
         <div class="container">
-            <div class="row align-items-center gy-5">
-                <div class="col-lg-6 order-lg-1 order-2 fade-in-up">
-                    <span class="badge bg-light text-primary border mb-3 px-3 py-2 rounded-pill">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center fade-in-up">
+                    <span class="badge bg-light text-primary border mb-4 px-3 py-2 rounded-pill">
                         <i class="fas fa-check-circle me-2"></i>Available for Consulting
                     </span>
                     <h1 class="mb-4" style="text-wrap: balance;">Transforming Enterprise Finance with <span style="color: var(--accent);">Strategic SAP Solutions</span></h1>
-                    <p class="lead text-secondary mb-4">
+                    <p class="lead text-secondary mb-5 mx-auto" style="max-width: 700px;">
                         I am Alex Sterling, a Senior SAP FICO & S/4HANA Consultant. I bridge the gap between complex financial processes and cutting-edge technology to drive business value.
                     </p>
-                    <div class="hero-actions d-flex gap-3 mb-5">
+                    <div class="hero-actions d-inline-flex gap-3 mb-5">
                         <a href="#projects" class="btn btn-primary">View My Work</a>
                         <a href="#contact" class="btn btn-outline-dark">Contact Me</a>
                     </div>
                     
-                    <div class="hero-stats pt-4 border-top d-flex gap-5">
+                    <div class="hero-stats pt-4 border-top d-flex gap-5 justify-content-center mx-auto">
                         <div>
                             <h3 class="mb-0 fw-bold">8+</h3>
                             <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem; letter-spacing: 1px;">Years Exp.</small>
@@ -476,30 +419,6 @@
                         <div>
                             <h3 class="mb-0 fw-bold">100%</h3>
                             <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem; letter-spacing: 1px;">Success</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 order-lg-2 order-1 text-center fade-in-up">
-                    <!-- CSS-Only Hero Graphic -->
-                    <div class="hero-graphic">
-                        <div class="graphic-card gc-2"></div>
-                        <div class="graphic-card gc-1">
-                            <!-- Abstract UI Elements -->
-                            <div class="w-100 px-4 mt-4 mb-2 d-flex justify-content-between">
-                                <div class="rounded-circle bg-secondary bg-opacity-25" style="width:15px; height:15px;"></div>
-                                <div class="rounded-circle bg-secondary bg-opacity-25" style="width:15px; height:15px;"></div>
-                            </div>
-                            <div class="px-4">
-                                <div class="gc-line mb-3"></div>
-                                <div class="gc-line mb-3"></div>
-                                <div class="gc-line short mb-3"></div>
-                                <div class="gc-line mb-1"></div>
-                            </div>
-                        </div>
-                        <div class="graphic-card gc-3">
-                            <i class="fas fa-chart-line gc-icon"></i>
-                            <div class="text-uppercase fw-bold" style="font-size: 0.8rem; letter-spacing: 1px;">SAP</div>
-                            <div class="display-6 fw-bold mt-1">FICO</div>
                         </div>
                     </div>
                 </div>
@@ -554,7 +473,7 @@
                     </div>
                 </div>
                 
-                <!-- Visual Replacement: Key Highlights -->
+                <!-- Visual Replacement: Key Highlights Card -->
                 <div class="col-lg-5 fade-in-up">
                     <div class="custom-card bg-primary text-white border-0 shadow-lg" style="background: linear-gradient(135deg, var(--primary), var(--secondary));">
                         <div class="mb-4">
