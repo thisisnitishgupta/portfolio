@@ -54,7 +54,7 @@
             line-height: 1.2;
         }
 
-        h1 { font-size: clamp(2.5rem, 5vw, 3.75rem); }
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
         h2 { font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 1rem; }
         h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
         h4 { font-size: 1.1rem; font-weight: 600; }
@@ -99,11 +99,12 @@
             background: var(--accent-light);
         }
 
-        /* Merged Hero/About Section */
+        /* Hero Section (Split Layout) */
         #hero {
             padding: 5rem 0 6rem;
             position: relative;
             overflow: hidden;
+            background-color: var(--bg-body);
         }
 
         .hero-blob {
@@ -347,9 +348,7 @@
                 grid-template-columns: 1fr; 
                 gap: 1.5rem; 
                 margin-top: 2rem !important; 
-                max-width: 300px; 
-                margin-left: auto; 
-                margin-right: auto;
+                width: 100%;
             }
             .hero-stats h3 { font-size: 2rem; }
             
@@ -357,11 +356,13 @@
                 display: grid;
                 grid-template-columns: 1fr;
                 gap: 1rem;
-                max-width: 300px;
-                margin: 0 auto;
+                width: 100%;
             }
             
             .btn { width: 100%; }
+            
+            /* Philosophy Card Stacking */
+            #hero .col-lg-5 { margin-top: 3rem; }
         }
     </style>
 </head>
@@ -376,8 +377,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center">
-                    <!-- About link now points to merged Hero section -->
-                    <li class="nav-item"><a class="nav-link" href="#hero">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
@@ -389,25 +389,27 @@
         </div>
     </nav>
 
-    <!-- Merged Hero & About Section -->
+    <!-- Hero Section (Split Layout) -->
     <section id="hero" class="section-padding-mobile">
         <div class="hero-blob"></div>
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center fade-in-up">
+            <div class="row align-items-center gy-5">
+                
+                <!-- Left Side: Hero Content -->
+                <div class="col-lg-7 order-2 order-lg-1 fade-in-up">
                     <span class="badge bg-light text-primary border mb-4 px-3 py-2 rounded-pill">
                         <i class="fas fa-check-circle me-2"></i>Available for Consulting
                     </span>
                     <h1 class="mb-4" style="text-wrap: balance;">Transforming Enterprise Finance with <span style="color: var(--accent);">Strategic SAP Solutions</span></h1>
-                    <p class="lead text-secondary mb-4 mx-auto" style="max-width: 700px;">
+                    <p class="lead text-secondary mb-4">
                         I am Alex Sterling, a Senior SAP FICO & S/4HANA Consultant. I bridge the gap between complex financial processes and cutting-edge technology to drive business value.
                     </p>
-                    <div class="hero-actions d-inline-flex gap-3 mb-4">
+                    <div class="hero-actions d-flex gap-3 mb-4">
                         <a href="#projects" class="btn btn-primary">View My Work</a>
                         <a href="#contact" class="btn btn-outline-dark">Contact Me</a>
                     </div>
                     
-                    <div class="hero-stats pt-3 border-top d-flex gap-5 justify-content-center mx-auto">
+                    <div class="hero-stats pt-3 border-top d-flex gap-5">
                         <div>
                             <h3 class="mb-0 fw-bold">8+</h3>
                             <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem; letter-spacing: 1px;">Years Exp.</small>
@@ -422,54 +424,16 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Extended About Content (2-Column Layout) -->
-            <div class="row align-items-start gy-5 mt-5 pt-5 fade-in-up">
-                <div class="col-lg-7">
-                    <h3 class="mb-4">A Strategic Partner for Your Business</h3>
-                    <p class="text-secondary mb-4">
-                        With over 8 years of hands-on experience in SAP FICO and S/4HANA migrations, I specialize in optimizing financial operations for global enterprises. My approach is simple: understand the business need first, then configure the technology to solve it efficiently.
-                    </p>
-                    <p class="text-secondary mb-5">
-                        I have led full-cycle implementations, managed cross-functional teams, and delivered training programs that empower finance teams to leverage SAP effectively.
-                    </p>
-                    <div class="row g-3">
-                        <div class="col-sm-6">
-                            <div class="d-flex align-items-center p-3 bg-white rounded-3 border shadow-sm">
-                                <i class="fas fa-check-circle text-primary me-3"></i>
-                                <span class="fw-medium">S/4HANA Finance Migration</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex align-items-center p-3 bg-white rounded-3 border shadow-sm">
-                                <i class="fas fa-check-circle text-primary me-3"></i>
-                                <span class="fw-medium">New GL Configuration</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex align-items-center p-3 bg-white rounded-3 border shadow-sm">
-                                <i class="fas fa-check-circle text-primary me-3"></i>
-                                <span class="fw-medium">COPA & Profitability</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex align-items-center p-3 bg-white rounded-3 border shadow-sm">
-                                <i class="fas fa-check-circle text-primary me-3"></i>
-                                <span class="fw-medium">Process Re-engineering</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 
-                <div class="col-lg-5">
-                    <div class="custom-card bg-primary text-white border-0 shadow-lg" style="background: linear-gradient(135deg, var(--primary), var(--secondary));">
+                <!-- Right Side: Philosophy Card -->
+                <div class="col-lg-5 order-1 order-lg-2 text-center fade-in-up">
+                    <div class="custom-card bg-primary text-white border-0 shadow-lg h-100 justify-content-center" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); min-height: 400px;">
                         <div class="mb-4">
                             <i class="fas fa-quote-left fa-2x text-white-50"></i>
                         </div>
                         <h4 class="text-white mb-3">My Philosophy</h4>
-                        <p class="text-white-50 mb-5 fst-italic">"Technology should serve the business, not complicate it. I build systems that empower decision-makers with clarity and speed."</p>
-                        <div class="d-flex justify-content-between border-top border-white border-opacity-25 pt-3">
+                        <p class="text-white-50 mb-5 fst-italic px-3">"Technology should serve the business, not complicate it. I build systems that empower decision-makers with clarity and speed."</p>
+                        <div class="d-flex justify-content-around border-top border-white border-opacity-25 pt-4 mt-auto">
                             <div>
                                 <h5 class="text-white mb-0">100%</h5>
                                 <small class="text-white-50">Compliance</small>
@@ -485,8 +449,56 @@
         </div>
     </section>
 
+    <!-- About Section (Now Separate) -->
+    <section id="about" class="py-5 bg-white section-padding-mobile">
+        <div class="container py-4">
+            <div class="row justify-content-center fade-in-up">
+                <div class="col-lg-8">
+                    <div class="text-center mb-5">
+                        <h2 class="mb-3">About Me</h2>
+                        <p class="text-secondary fs-5">Driving digital transformation in the Finance sector.</p>
+                    </div>
+                    
+                    <h3 class="mb-4">A Strategic Partner for Your Business</h3>
+                    <p class="text-secondary mb-4">
+                        With over 8 years of hands-on experience in SAP FICO and S/4HANA migrations, I specialize in optimizing financial operations for global enterprises. My approach is simple: understand the business need first, then configure the technology to solve it efficiently.
+                    </p>
+                    <p class="text-secondary mb-5">
+                        I have led full-cycle implementations, managed cross-functional teams, and delivered training programs that empower finance teams to leverage SAP effectively.
+                    </p>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center p-3 bg-body rounded-3 border shadow-sm">
+                                <i class="fas fa-check-circle text-primary me-3"></i>
+                                <span class="fw-medium">S/4HANA Finance Migration</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center p-3 bg-body rounded-3 border shadow-sm">
+                                <i class="fas fa-check-circle text-primary me-3"></i>
+                                <span class="fw-medium">New GL Configuration</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center p-3 bg-body rounded-3 border shadow-sm">
+                                <i class="fas fa-check-circle text-primary me-3"></i>
+                                <span class="fw-medium">COPA & Profitability</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center p-3 bg-body rounded-3 border shadow-sm">
+                                <i class="fas fa-check-circle text-primary me-3"></i>
+                                <span class="fw-medium">Process Re-engineering</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
-    <section id="skills" class="py-5 bg-white section-padding-mobile">
+    <section id="skills" class="py-5 section-padding-mobile">
         <div class="container py-4">
             <div class="row justify-content-center mb-5 fade-in-up">
                 <div class="col-lg-8 text-center">
@@ -553,7 +565,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-5 section-padding-mobile">
+    <section id="experience" class="py-5 bg-white section-padding-mobile">
         <div class="container py-4">
             <div class="row justify-content-center mb-5 fade-in-up">
                 <div class="col-lg-8 text-center">
@@ -601,7 +613,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-5 bg-white section-padding-mobile">
+    <section id="projects" class="py-5 section-padding-mobile">
         <div class="container py-4">
             <div class="row justify-content-center mb-5 fade-in-up">
                 <div class="col-lg-8 text-center">
@@ -669,7 +681,7 @@
     </section>
 
     <!-- Education & Certs -->
-    <section id="education" class="py-5 section-padding-mobile">
+    <section id="education" class="py-5 bg-white section-padding-mobile">
         <div class="container py-4">
             <div class="row justify-content-center mb-5 fade-in-up">
                 <div class="col-lg-8 text-center">
@@ -700,7 +712,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-white section-padding-mobile">
+    <section id="contact" class="py-5 section-padding-mobile">
         <div class="container py-4">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 fade-in-up">
