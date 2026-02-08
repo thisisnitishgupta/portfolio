@@ -54,7 +54,7 @@
             line-height: 1.2;
         }
 
-        h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); } /* Larger text for text-only hero */
+        h1 { font-size: clamp(2.5rem, 5vw, 3.75rem); }
         h2 { font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 1rem; }
         h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
         h4 { font-size: 1.1rem; font-weight: 600; }
@@ -63,7 +63,7 @@
         .lead { font-weight: 500; line-height: 1.6; color: var(--secondary); font-size: 1.15rem; }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
+            h1 { font-size: 2.25rem; }
             h2 { font-size: 1.75rem; }
             p { font-size: 1rem; }
         }
@@ -99,12 +99,11 @@
             background: var(--accent-light);
         }
 
-        /* Hero Section - Text Only */
+        /* Merged Hero/About Section */
         #hero {
-            padding: 8rem 0 6rem; /* Generous vertical spacing */
+            padding: 5rem 0 6rem;
             position: relative;
             overflow: hidden;
-            text-align: center; /* Center alignment for impact */
         }
 
         .hero-blob {
@@ -123,7 +122,7 @@
         /* Buttons */
         .btn {
             font-weight: 600;
-            padding: 0.85rem 2rem; /* Slightly larger buttons */
+            padding: 0.85rem 2rem;
             border-radius: 50px;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             font-size: 1rem;
@@ -338,7 +337,7 @@
                 padding-bottom: 3rem !important;
             }
             
-            #hero { padding: 5rem 0 4rem; }
+            #hero { padding: 4rem 0 5rem; }
             
             .timeline { margin-left: 0; }
             .timeline-item::before { left: -29px; }
@@ -377,7 +376,8 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <!-- About link now points to merged Hero section -->
+                    <li class="nav-item"><a class="nav-link" href="#hero">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
@@ -389,25 +389,25 @@
         </div>
     </nav>
 
-    <!-- Hero Section - Text Focused, Centered -->
-    <header id="hero" class="section-padding-mobile">
+    <!-- Merged Hero & About Section -->
+    <section id="hero" class="section-padding-mobile">
         <div class="hero-blob"></div>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8 text-center fade-in-up">
+                <div class="col-lg-10 text-center fade-in-up">
                     <span class="badge bg-light text-primary border mb-4 px-3 py-2 rounded-pill">
                         <i class="fas fa-check-circle me-2"></i>Available for Consulting
                     </span>
                     <h1 class="mb-4" style="text-wrap: balance;">Transforming Enterprise Finance with <span style="color: var(--accent);">Strategic SAP Solutions</span></h1>
-                    <p class="lead text-secondary mb-5 mx-auto" style="max-width: 700px;">
+                    <p class="lead text-secondary mb-4 mx-auto" style="max-width: 700px;">
                         I am Alex Sterling, a Senior SAP FICO & S/4HANA Consultant. I bridge the gap between complex financial processes and cutting-edge technology to drive business value.
                     </p>
-                    <div class="hero-actions d-inline-flex gap-3 mb-5">
+                    <div class="hero-actions d-inline-flex gap-3 mb-4">
                         <a href="#projects" class="btn btn-primary">View My Work</a>
                         <a href="#contact" class="btn btn-outline-dark">Contact Me</a>
                     </div>
                     
-                    <div class="hero-stats pt-4 border-top d-flex gap-5 justify-content-center mx-auto">
+                    <div class="hero-stats pt-3 border-top d-flex gap-5 justify-content-center mx-auto">
                         <div>
                             <h3 class="mb-0 fw-bold">8+</h3>
                             <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem; letter-spacing: 1px;">Years Exp.</small>
@@ -423,21 +423,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
 
-    <!-- About Section -->
-    <section id="about" class="py-5 section-padding-mobile">
-        <div class="container py-4">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center mb-5 fade-in-up">
-                    <h2 class="mb-3">About Me</h2>
-                    <p class="text-secondary fs-5">Driving digital transformation in the Finance sector.</p>
-                </div>
-            </div>
-            <div class="row align-items-start gy-5">
-                <!-- Text Content -->
-                <div class="col-lg-7 fade-in-up">
+            <!-- Extended About Content (2-Column Layout) -->
+            <div class="row align-items-start gy-5 mt-5 pt-5 fade-in-up">
+                <div class="col-lg-7">
                     <h3 class="mb-4">A Strategic Partner for Your Business</h3>
                     <p class="text-secondary mb-4">
                         With over 8 years of hands-on experience in SAP FICO and S/4HANA migrations, I specialize in optimizing financial operations for global enterprises. My approach is simple: understand the business need first, then configure the technology to solve it efficiently.
@@ -473,8 +462,7 @@
                     </div>
                 </div>
                 
-                <!-- Visual Replacement: Key Highlights Card -->
-                <div class="col-lg-5 fade-in-up">
+                <div class="col-lg-5">
                     <div class="custom-card bg-primary text-white border-0 shadow-lg" style="background: linear-gradient(135deg, var(--primary), var(--secondary));">
                         <div class="mb-4">
                             <i class="fas fa-quote-left fa-2x text-white-50"></i>
