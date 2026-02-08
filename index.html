@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nitish Gupta | SAP FICO Consultant</title>
-    <meta name="description" content="Portfolio of a SAP FICO Consultant specializing in S/4HANA and Digital Transformation.">
+    <title>Alex Sterling | Senior SAP FICO Consultant</title>
+    <meta name="description" content="Portfolio of a Senior SAP FICO Consultant specializing in S/4HANA and Digital Transformation.">
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,8 +26,8 @@
             --text-main: #1e293b;
             --text-muted: #64748b;
             
-            /* Design Tokens for Rhythm */
-            --border-radius: 20px; /* Slightly rounder for modern feel */
+            /* Design Tokens */
+            --border-radius: 20px;
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
@@ -40,21 +40,21 @@
             font-family: var(--font-main);
             background-color: var(--bg-body);
             color: var(--text-main);
-            line-height: 1.7; /* Improved readability */
+            line-height: 1.7;
             overflow-x: hidden;
-            padding-top: 76px; /* Fixed navbar offset */
-            -webkit-font-smoothing: antialiased; /* Crisp text on Mac */
+            padding-top: 76px;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* Typography & Hierarchy */
         h1, h2, h3, h4, h5, h6 {
             font-weight: 700;
             color: var(--primary);
-            letter-spacing: -0.03em; /* Tighter tracking for modern look */
+            letter-spacing: -0.03em;
             line-height: 1.2;
         }
 
-        h1 { font-size: clamp(2.5rem, 5vw, 3.75rem); } /* Fluid responsive font */
+        h1 { font-size: clamp(2.5rem, 5vw, 3.75rem); }
         h2 { font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 1rem; }
         h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
         h4 { font-size: 1.1rem; font-weight: 600; }
@@ -62,11 +62,10 @@
         p { margin-bottom: 1.25rem; }
         .lead { font-weight: 500; line-height: 1.6; color: var(--secondary); }
 
-        /* Mobile Typography Tweaks */
         @media (max-width: 768px) {
             h1 { font-size: 2.25rem; }
             h2 { font-size: 1.75rem; }
-            p { font-size: 1rem; } /* Ensure body text isn't too small */
+            p { font-size: 1rem; }
         }
 
         a { text-decoration: none; transition: all 0.3s ease; }
@@ -102,7 +101,7 @@
 
         /* Hero Section */
         #hero {
-            padding: 4rem 0; /* Reduced vertical padding on mobile */
+            padding: 4rem 0;
             position: relative;
             overflow: hidden;
         }
@@ -116,6 +115,72 @@
             background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, rgba(255,255,255,0) 70%);
             border-radius: 50%;
             z-index: -1;
+        }
+
+        /* CSS-only Hero Graphic */
+        .hero-graphic {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .graphic-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gc-1 {
+            width: 280px;
+            height: 360px;
+            z-index: 2;
+            background: linear-gradient(135deg, #ffffff, #f1f5f9);
+            transform: rotate(-5deg) translateY(-20px);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .gc-2 {
+            width: 260px;
+            height: 340px;
+            z-index: 1;
+            background: #e2e8f0;
+            top: 20px;
+            right: 40px;
+            transform: rotate(5deg);
+        }
+
+        .gc-3 {
+            width: 240px;
+            height: 320px;
+            z-index: 3;
+            background: var(--primary);
+            bottom: 20px;
+            left: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        .gc-icon { font-size: 4rem; margin-bottom: 1rem; }
+        .gc-line { width: 60%; height: 8px; background: rgba(255,255,255,0.3); border-radius: 4px; margin-bottom: 10px; }
+        .gc-line.short { width: 40%; }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(-5deg); }
+            50% { transform: translateY(-15px) rotate(-5deg); }
+            100% { transform: translateY(0px) rotate(-5deg); }
         }
 
         /* Buttons */
@@ -206,7 +271,7 @@
 
         .timeline-item {
             position: relative;
-            margin-bottom: 3rem; /* Consistent vertical rhythm */
+            margin-bottom: 3rem;
         }
 
         .timeline-item:last-child { margin-bottom: 0; }
@@ -214,7 +279,7 @@
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -31px; /* Adjusted for new padding */
+            left: -31px;
             top: 6px;
             width: 12px;
             height: 12px;
@@ -222,7 +287,7 @@
             background: var(--bg-white);
             border: 3px solid var(--accent);
             z-index: 1;
-            box-shadow: 0 0 0 4px rgba(255,255,255,1); /* White halo to clear line */
+            box-shadow: 0 0 0 4px rgba(255,255,255,1);
         }
 
         .timeline-date {
@@ -235,24 +300,43 @@
             display: block;
         }
 
-        /* Project Card */
-        .project-img-wrapper {
+        /* Project Card - CSS Graphic Header */
+        .project-card {
+            background: var(--bg-white);
+            border: 1px solid rgba(0,0,0,0.04);
+            border-radius: var(--border-radius);
             overflow: hidden;
-            border-radius: 16px; /* Matches card radius roughly */
-            margin-bottom: 1.5rem;
-            height: 220px; /* Fixed height for consistency */
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
         }
 
-        .project-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
         }
 
-        .custom-card:hover .project-img {
-            transform: scale(1.05);
+        .project-header {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
+
+        /* Unique Gradients for Projects */
+        .gradient-1 { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
+        .gradient-2 { background: linear-gradient(135deg, #4338ca, #8b5cf6); }
+        .gradient-3 { background: linear-gradient(135deg, #0f766e, #2dd4bf); }
+
+        .project-icon {
+            font-size: 4rem;
+            color: rgba(255,255,255,0.9);
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+        
+        .project-content { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
         
         .badge {
             font-weight: 600;
@@ -320,11 +404,9 @@
             .timeline { margin-left: 0; }
             .timeline-item::before { left: -29px; }
             
-            /* Stack Stats on Mobile */
             .hero-stats { gap: 1.5rem; margin-top: 1.5rem !important; }
             .hero-stats h3 { font-size: 1.75rem; }
             
-            /* Full width buttons on mobile for ease */
             .hero-actions {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -332,35 +414,13 @@
             }
             
             .btn { width: 100%; }
+            
+            .hero-graphic { height: 300px; }
+            .gc-1 { width: 200px; height: 260px; }
+            .gc-2 { width: 190px; height: 250px; }
+            .gc-3 { width: 180px; height: 240px; }
+            .gc-icon { font-size: 3rem; }
         }
-        .hero-image-wrapper {
-  max-width: 380px;          /* controls visual dominance */
-  margin-left: auto;        /* aligns image to right */
-}
-
-.hero-profile-img {
-  width: 100%;
-  aspect-ratio: 4 / 5;      /* portrait ratio */
-  object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-}
-
-/* Tablet */
-@media (max-width: 992px) {
-  .hero-image-wrapper {
-    max-width: 320px;
-    margin: 0 auto;
-  }
-}
-
-/* Mobile */
-@media (max-width: 576px) {
-  .hero-image-wrapper {
-    max-width: 240px;       /* 👈 key fix */
-  }
-}
-
     </style>
 </head>
 <body>
@@ -368,7 +428,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="https://thisisnitishgupta.github.io/portfolio/">Nitish<span style="color:var(--accent)">Gupta</span>.</a>
+            <a class="navbar-brand" href="#">Alex<span style="color:var(--accent)">Sterling</span>.</a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars" style="color: var(--primary); font-size: 1.5rem;"></i>
             </button>
@@ -393,14 +453,14 @@
             <div class="row align-items-center gy-5">
                 <div class="col-lg-6 order-lg-1 order-2 fade-in-up">
                     <span class="badge bg-light text-primary border mb-3 px-3 py-2 rounded-pill">
-                        <i class="fas fa-check-circle me-2"></i>Serving Notice Period
+                        <i class="fas fa-check-circle me-2"></i>Available for Consulting
                     </span>
-                    <h1 class="mb-4 text-wrap" style="text-wrap: balance;">Transforming Enterprise Finance with <span style="color: var(--accent);">Strategic SAP Solutions</span></h1>
+                    <h1 class="mb-4" style="text-wrap: balance;">Transforming Enterprise Finance with <span style="color: var(--accent);">Strategic SAP Solutions</span></h1>
                     <p class="lead text-secondary mb-4">
-                        I am Nitish Gupta, a SAP FICO Consultant. I bridge the gap between complex financial processes and cutting-edge technology to drive business value.
+                        I am Alex Sterling, a Senior SAP FICO & S/4HANA Consultant. I bridge the gap between complex financial processes and cutting-edge technology to drive business value.
                     </p>
                     <div class="hero-actions d-flex gap-3 mb-5">
-                        <a href="https://github.com/thisisnitishgupta/portfolio/blob/main/Nitish%20Kumar%20Gupta%20-%20SAP%20FICO%20Consultant%20Resume.pdf" class="btn btn-primary">Resume</a>
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
                         <a href="#contact" class="btn btn-outline-dark">Contact Me</a>
                     </div>
                     
@@ -420,8 +480,29 @@
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-2 order-1 text-center fade-in-up">
-                    <!-- Professional Placeholder Image -->
-                    <img src="photo.jpeg" alt="Nitish Gupta – Senior SAP FICO Consultant" class="hero-profile-img" loading="lazy">
+                    <!-- CSS-Only Hero Graphic -->
+                    <div class="hero-graphic">
+                        <div class="graphic-card gc-2"></div>
+                        <div class="graphic-card gc-1">
+                            <!-- Abstract UI Elements -->
+                            <div class="w-100 px-4 mt-4 mb-2 d-flex justify-content-between">
+                                <div class="rounded-circle bg-secondary bg-opacity-25" style="width:15px; height:15px;"></div>
+                                <div class="rounded-circle bg-secondary bg-opacity-25" style="width:15px; height:15px;"></div>
+                            </div>
+                            <div class="px-4">
+                                <div class="gc-line mb-3"></div>
+                                <div class="gc-line mb-3"></div>
+                                <div class="gc-line short mb-3"></div>
+                                <div class="gc-line mb-1"></div>
+                            </div>
+                        </div>
+                        <div class="graphic-card gc-3">
+                            <i class="fas fa-chart-line gc-icon"></i>
+                            <div class="text-uppercase fw-bold" style="font-size: 0.8rem; letter-spacing: 1px;">Growth</div>
+                            <div class="display-6 fw-bold mt-1">+124%</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -435,10 +516,8 @@
                     <p class="text-secondary fs-5">Driving digital transformation in the Finance sector.</p>
                 </div>
             </div>
-            <div class="row align-items-center gy-5">
-                <div class="col-lg-5 fade-in-up">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Finance Strategy" class="img-fluid rounded-4 shadow-lg w-100">
-                </div>
+            <div class="row align-items-start gy-5">
+                <!-- Text Content -->
                 <div class="col-lg-7 fade-in-up">
                     <h3 class="mb-4">A Strategic Partner for Your Business</h3>
                     <p class="text-secondary mb-4">
@@ -449,27 +528,48 @@
                     </p>
                     <div class="row g-3">
                         <div class="col-sm-6">
-                            <div class="d-flex align-items-center p-3 bg-white rounded-3 border">
+                            <div class="d-flex align-items-center p-3 bg-white rounded-3 border shadow-sm">
                                 <i class="fas fa-check-circle text-primary me-3"></i>
                                 <span class="fw-medium">S/4HANA Finance Migration</span>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="d-flex align-items-center p-3 bg-white rounded-3 border">
+                            <div class="d-flex align-items-center p-3 bg-white rounded-3 border shadow-sm">
                                 <i class="fas fa-check-circle text-primary me-3"></i>
                                 <span class="fw-medium">New GL Configuration</span>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="d-flex align-items-center p-3 bg-white rounded-3 border">
+                            <div class="d-flex align-items-center p-3 bg-white rounded-3 border shadow-sm">
                                 <i class="fas fa-check-circle text-primary me-3"></i>
                                 <span class="fw-medium">COPA & Profitability</span>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="d-flex align-items-center p-3 bg-white rounded-3 border">
+                            <div class="d-flex align-items-center p-3 bg-white rounded-3 border shadow-sm">
                                 <i class="fas fa-check-circle text-primary me-3"></i>
                                 <span class="fw-medium">Process Re-engineering</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Visual Replacement: Key Highlights -->
+                <div class="col-lg-5 fade-in-up">
+                    <div class="custom-card bg-primary text-white border-0 shadow-lg" style="background: linear-gradient(135deg, var(--primary), var(--secondary));">
+                        <div class="mb-4">
+                            <i class="fas fa-quote-left fa-2x text-white-50"></i>
+                        </div>
+                        <h4 class="text-white mb-3">My Philosophy</h4>
+                        <p class="text-white-50 mb-5 fst-italic">"Technology should serve the business, not complicate it. I build systems that empower decision-makers with clarity and speed."</p>
+                        <div class="d-flex justify-content-between border-top border-white border-opacity-25 pt-3">
+                            <div>
+                                <h5 class="text-white mb-0">100%</h5>
+                                <small class="text-white-50">Compliance</small>
+                            </div>
+                            <div>
+                                <h5 class="text-white mb-0">24/7</h5>
+                                <small class="text-white-50">Support</small>
                             </div>
                         </div>
                     </div>
@@ -606,14 +706,14 @@
             <div class="row g-4">
                 <!-- Project 1 -->
                 <div class="col-md-6 col-lg-4 fade-in-up">
-                    <div class="custom-card p-0 overflow-hidden border-0 shadow-md">
-                        <div class="project-img-wrapper">
-                            <img src="https://picsum.photos/seed/sap1/600/400" alt="S/4HANA Migration" class="project-img">
+                    <div class="project-card">
+                        <div class="project-header gradient-1">
+                            <i class="fas fa-exchange-alt project-icon"></i>
                         </div>
-                        <div class="p-4">
+                        <div class="project-content">
                             <h4 class="mb-2">S/4HANA Migration</h4>
                             <p class="text-secondary mb-3">Led the migration from ECC 6.0 to S/4HANA for a multi-national retail giant, reducing month-end closing time by 40%.</p>
-                            <div class="mb-4">
+                            <div class="mb-4 mt-auto">
                                 <span class="badge bg-light text-secondary border me-1">S/4HANA</span>
                                 <span class="badge bg-light text-secondary border">Migration</span>
                             </div>
@@ -624,14 +724,14 @@
 
                 <!-- Project 2 -->
                 <div class="col-md-6 col-lg-4 fade-in-up">
-                    <div class="custom-card p-0 overflow-hidden border-0 shadow-md">
-                        <div class="project-img-wrapper">
-                            <img src="https://picsum.photos/seed/sap2/600/400" alt="Global Rollout" class="project-img">
+                    <div class="project-card">
+                        <div class="project-header gradient-2">
+                            <i class="fas fa-globe-americas project-icon"></i>
                         </div>
-                        <div class="p-4">
+                        <div class="project-content">
                             <h4 class="mb-2">Global Finance Rollout</h4>
                             <p class="text-secondary mb-3">Standardized finance processes across 15 countries in APAC and EMEA regions, ensuring compliance with local GAAP.</p>
-                            <div class="mb-4">
+                            <div class="mb-4 mt-auto">
                                 <span class="badge bg-light text-secondary border me-1">Rollout</span>
                                 <span class="badge bg-light text-secondary border">Compliance</span>
                             </div>
@@ -642,14 +742,14 @@
 
                 <!-- Project 3 -->
                 <div class="col-md-6 col-lg-4 fade-in-up">
-                    <div class="custom-card p-0 overflow-hidden border-0 shadow-md">
-                        <div class="project-img-wrapper">
-                            <img src="https://picsum.photos/seed/sap3/600/400" alt="COPA Implementation" class="project-img">
+                    <div class="project-card">
+                        <div class="project-header gradient-3">
+                            <i class="fas fa-chart-bar project-icon"></i>
                         </div>
-                        <div class="p-4">
+                        <div class="project-content">
                             <h4 class="mb-2">COPA Implementation</h4>
                             <p class="text-secondary mb-3">Designed and implemented Profitability Analysis (COPA) to provide real-time margin analysis at the customer and product level.</p>
-                            <div class="mb-4">
+                            <div class="mb-4 mt-auto">
                                 <span class="badge bg-light text-secondary border me-1">COPA</span>
                                 <span class="badge bg-light text-secondary border">Reporting</span>
                             </div>
@@ -698,34 +798,34 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 fade-in-up">
                     <h2 class="mb-4">Let's Work Together</h2>
-                    <p class="text-secondary mb-5">I am currently open to SAP FICO consulting roles. If you are looking to optimize your SAP landscape, let's start a conversation.</p>
+                    <p class="text-secondary mb-5">I am currently open to senior consulting roles and advisory projects. If you are looking to optimize your SAP landscape, let's start a conversation.</p>
                     
                     <div class="d-flex flex-column gap-4">
-                        <div class="d-flex align-items-center p-3 bg-white border rounded-3">
+                        <div class="d-flex align-items-center p-3 bg-white border rounded-3 shadow-sm">
                             <div class="contact-icon me-3">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div>
                                 <h6 class="mb-0 fw-bold">Email Me</h6>
-                                <a href="mailto:kkumarnitish61@gmail.com" class="text-secondary text-decoration-none">hello@alexsterling.com</a>
+                                <a href="mailto:hello@alexsterling.com" class="text-secondary text-decoration-none">hello@alexsterling.com</a>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center p-3 bg-white border rounded-3">
+                        <div class="d-flex align-items-center p-3 bg-white border rounded-3 shadow-sm">
                             <div class="contact-icon me-3">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
                                 <h6 class="mb-0 fw-bold">Location</h6>
-                                <span class="text-secondary">Kolkata, WB (India)</span>
+                                <span class="text-secondary">New York, NY (Open to Remote)</span>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center p-3 bg-white border rounded-3">
+                        <div class="d-flex align-items-center p-3 bg-white border rounded-3 shadow-sm">
                             <div class="contact-icon me-3">
                                 <i class="fab fa-linkedin-in"></i>
                             </div>
                             <div>
                                 <h6 class="mb-0 fw-bold">LinkedIn</h6>
-                                <a href="#" class="text-secondary text-decoration-none">https://www.linkedin.com/in/nitishkg/</a>
+                                <a href="#" class="text-secondary text-decoration-none">linkedin.com/in/alexsterling</a>
                             </div>
                         </div>
                     </div>
@@ -758,10 +858,12 @@
     <footer>
         <div class="container text-center">
             <div class="mb-4">
-                <a href="https://www.linkedin.com/in/nitishkg/" class="text-secondary mx-3 fs-5"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-secondary mx-3 fs-5"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-secondary mx-3 fs-5"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-secondary mx-3 fs-5"><i class="fab fa-twitter"></i></a>
             </div>
-            <p class="mb-0">&copy; 2026 Nitish Kumar Gupta. All rights reserved.</p>
-            <p class="small mb-0 text-muted">Designed with Love.</p>
+            <p class="mb-0">&copy; 2023 Alex Sterling. All rights reserved.</p>
+            <p class="small mb-0 text-muted">Designed with Bootstrap 5</p>
         </div>
     </footer>
 
