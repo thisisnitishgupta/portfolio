@@ -3,12 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Alex Sterling | Senior SAP FICO Consultant">
-    <meta property="og:description" content="Senior SAP FICO & S/4HANA Consultant specializing in finance transformation and global ERP implementations.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourusername.github.io/portfolio/">
-    <meta property="og:image" content="https://yourdomain.com/profile.jpg">
-
     <title>Alex Sterling | Senior SAP FICO Consultant</title>
     <meta name="description" content="Portfolio of a Senior SAP FICO Consultant specializing in S/4HANA and Digital Transformation.">
     
@@ -21,19 +15,24 @@
 
     <style>
         :root {
-            --primary: #0f172a;       /* Slate 900 - Deep Navy */
+            /* Palette */
+            --primary: #0f172a;       /* Slate 900 */
             --secondary: #334155;     /* Slate 700 */
-            --accent: #3b82f6;        /* Blue 500 - Royal Blue */
+            --accent: #3b82f6;        /* Blue 500 */
+            --accent-hover: #2563eb;  /* Blue 600 */
             --accent-light: #eff6ff;  /* Blue 50 */
             --bg-body: #f8fafc;       /* Slate 50 */
             --bg-white: #ffffff;
             --text-main: #1e293b;
             --text-muted: #64748b;
-            --border-radius: 16px;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
-            --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.01);
+            
+            /* Design Tokens for Rhythm */
+            --border-radius: 20px; /* Slightly rounder for modern feel */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
+            
             --font-main: 'Inter', sans-serif;
         }
 
@@ -41,47 +40,69 @@
             font-family: var(--font-main);
             background-color: var(--bg-body);
             color: var(--text-main);
-            line-height: 1.7;
+            line-height: 1.7; /* Improved readability */
             overflow-x: hidden;
-            padding-top: 76px; /* Offset for fixed navbar */
+            padding-top: 76px; /* Fixed navbar offset */
+            -webkit-font-smoothing: antialiased; /* Crisp text on Mac */
         }
 
+        /* Typography & Hierarchy */
         h1, h2, h3, h4, h5, h6 {
             font-weight: 700;
             color: var(--primary);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em; /* Tighter tracking for modern look */
+            line-height: 1.2;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 3.75rem); } /* Fluid responsive font */
+        h2 { font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 1rem; }
+        h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+        h4 { font-size: 1.1rem; font-weight: 600; }
+        
+        p { margin-bottom: 1.25rem; }
+        .lead { font-weight: 500; line-height: 1.6; color: var(--secondary); }
+
+        /* Mobile Typography Tweaks */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.25rem; }
+            h2 { font-size: 1.75rem; }
+            p { font-size: 1rem; } /* Ensure body text isn't too small */
         }
 
         a { text-decoration: none; transition: all 0.3s ease; }
         
         /* Navbar */
         .navbar {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(0,0,0,0.05);
-            padding: 1rem 0;
+            padding: 0.8rem 0;
         }
         
         .navbar-brand {
             font-weight: 800;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--primary);
+            letter-spacing: -0.04em;
         }
         
         .nav-link {
             font-weight: 500;
             color: var(--secondary);
-            margin: 0 10px;
-            position: relative;
+            margin: 0 4px;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 8px;
         }
         
         .nav-link:hover, .nav-link.active {
             color: var(--accent);
+            background: var(--accent-light);
         }
 
         /* Hero Section */
         #hero {
-            padding: 100px 0 80px;
+            padding: 4rem 0; /* Reduced vertical padding on mobile */
             position: relative;
             overflow: hidden;
         }
@@ -92,30 +113,35 @@
             right: -10%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, rgba(255,255,255,0) 70%);
+            background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, rgba(255,255,255,0) 70%);
             border-radius: 50%;
             z-index: -1;
+        }
+
+        /* Buttons */
+        .btn {
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            font-size: 1rem;
         }
 
         .btn-primary {
             background-color: var(--primary);
             border-color: var(--primary);
-            padding: 12px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            color: white;
         }
 
         .btn-primary:hover {
-            background-color: var(--accent);
-            border-color: var(--accent);
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.25);
         }
 
         .btn-outline-dark {
             border-radius: 50px;
-            padding: 12px 32px;
             font-weight: 600;
             border: 2px solid var(--primary);
             color: var(--primary);
@@ -125,37 +151,43 @@
             background-color: var(--primary);
             color: white;
             transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
+        
+        .btn-sm { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
 
         /* Cards General */
         .custom-card {
             background: var(--bg-white);
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.04);
             border-radius: var(--border-radius);
             padding: 2rem;
             height: 100%;
             transition: all 0.3s ease;
             box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
         }
 
         .custom-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             box-shadow: var(--shadow-hover);
-            border-color: rgba(59,130,246,0.2);
+            border-color: rgba(59,130,246,0.15);
         }
 
         /* Skills Pills */
         .skill-pill {
             background-color: var(--bg-body);
             color: var(--text-main);
-            padding: 8px 16px;
+            padding: 0.5rem 1rem;
             border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin: 0 5px 10px 0;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 0 6px 8px 0;
             display: inline-block;
             border: 1px solid rgba(0,0,0,0.05);
             transition: 0.3s;
+            letter-spacing: 0.02em;
         }
 
         .skill-pill:hover {
@@ -167,62 +199,71 @@
         /* Timeline */
         .timeline {
             position: relative;
-            padding-left: 30px;
+            padding-left: 24px;
             border-left: 2px solid #e2e8f0;
-            margin-left: 10px;
+            margin-left: 8px;
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 40px;
+            margin-bottom: 3rem; /* Consistent vertical rhythm */
         }
+
+        .timeline-item:last-child { margin-bottom: 0; }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -36px;
-            top: 5px;
-            width: 14px;
-            height: 14px;
+            left: -31px; /* Adjusted for new padding */
+            top: 6px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             background: var(--bg-white);
             border: 3px solid var(--accent);
             z-index: 1;
+            box-shadow: 0 0 0 4px rgba(255,255,255,1); /* White halo to clear line */
         }
 
         .timeline-date {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             color: var(--accent);
             font-weight: 700;
-            margin-bottom: 5px;
+            margin-bottom: 0.5rem;
             display: block;
         }
 
         /* Project Card */
         .project-img-wrapper {
             overflow: hidden;
-            border-radius: 12px;
+            border-radius: 16px; /* Matches card radius roughly */
             margin-bottom: 1.5rem;
-            height: 200px;
+            height: 220px; /* Fixed height for consistency */
         }
 
         .project-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .custom-card:hover .project-img {
             transform: scale(1.05);
         }
+        
+        .badge {
+            font-weight: 600;
+            padding: 0.5em 0.8em;
+            letter-spacing: 0.02em;
+        }
 
         /* Contact */
         .contact-icon {
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             background: var(--accent-light);
             color: var(--accent);
             border-radius: 12px;
@@ -231,13 +272,28 @@
             justify-content: center;
             font-size: 1.25rem;
             margin-bottom: 1rem;
+            flex-shrink: 0;
+        }
+
+        .form-control {
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            padding: 0.85rem 1rem;
+            background-color: #f8fafc;
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            background-color: #fff;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
 
         /* Footer */
         footer {
             background-color: var(--bg-white);
             border-top: 1px solid rgba(0,0,0,0.05);
-            padding: 2rem 0;
+            padding: 3rem 0;
             font-size: 0.9rem;
             color: var(--text-muted);
         }
@@ -245,7 +301,7 @@
         /* Animations */
         .fade-in-up {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
@@ -254,19 +310,29 @@
             transform: translateY(0);
         }
 
-        /* Mobile Tweaks */
+        /* Mobile Specific Rhythm Adjustments */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .hero-blob { width: 300px; height: 300px; }
-            .timeline { padding-left: 20px; margin-left: 5px; }
-            .timeline-item::before { left: -26px; }
+            .section-padding-mobile {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+            
+            .timeline { margin-left: 0; }
+            .timeline-item::before { left: -29px; }
+            
+            /* Stack Stats on Mobile */
+            .hero-stats { gap: 1.5rem; margin-top: 1.5rem !important; }
+            .hero-stats h3 { font-size: 1.75rem; }
+            
+            /* Full width buttons on mobile for ease */
+            .hero-actions {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+            }
+            
+            .btn { width: 100%; }
         }
-        @media (max-width: 576px) {
-            #hero {
-            padding-top: 70px;
-              }
-        }
-
     </style>
 </head>
 <body>
@@ -275,7 +341,7 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Alex<span style="color:var(--accent)">Sterling</span>.</a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars" style="color: var(--primary); font-size: 1.5rem;"></i>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -284,8 +350,8 @@
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item ms-lg-3">
-                        <a class="btn btn-primary btn-sm" href="#contact">Let's Talk</a>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a class="btn btn-primary btn-sm w-100" href="#contact">Let's Talk</a>
                     </li>
                 </ul>
             </div>
@@ -293,7 +359,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <header id="hero">
+    <header id="hero" class="section-padding-mobile">
         <div class="hero-blob"></div>
         <div class="container">
             <div class="row align-items-center gy-5">
@@ -301,41 +367,40 @@
                     <span class="badge bg-light text-primary border mb-3 px-3 py-2 rounded-pill">
                         <i class="fas fa-check-circle me-2"></i>Available for Consulting
                     </span>
-                    <h1 class="display-4 mb-4">Transforming Enterprise Finance with <span style="color: var(--accent);">Strategic SAP Solutions</span></h1>
-                    <p class="lead text-secondary mb-5">
+                    <h1 class="mb-4 text-wrap" style="text-wrap: balance;">Transforming Enterprise Finance with <span style="color: var(--accent);">Strategic SAP Solutions</span></h1>
+                    <p class="lead text-secondary mb-4">
                         I am Alex Sterling, a Senior SAP FICO & S/4HANA Consultant. I bridge the gap between complex financial processes and cutting-edge technology to drive business value.
                     </p>
-                    <div class="d-flex gap-3">
+                    <div class="hero-actions d-flex gap-3 mb-5">
                         <a href="#projects" class="btn btn-primary">View My Work</a>
                         <a href="#contact" class="btn btn-outline-dark">Contact Me</a>
-                        <a href="resume.pdf" class="btn btn-outline-dark" download>Download Resume</a>
                     </div>
                     
-                    <div class="mt-5 pt-4 border-top d-flex gap-5">
+                    <div class="hero-stats pt-4 border-top d-flex gap-5">
                         <div>
                             <h3 class="mb-0 fw-bold">8+</h3>
-                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.75rem;">Years Experience</small>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem; letter-spacing: 1px;">Years Exp.</small>
                         </div>
                         <div>
                             <h3 class="mb-0 fw-bold">15+</h3>
-                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.75rem;">Projects Delivered</small>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem; letter-spacing: 1px;">Projects</small>
                         </div>
                         <div>
                             <h3 class="mb-0 fw-bold">100%</h3>
-                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.75rem;">Client Satisfaction</small>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem; letter-spacing: 1px;">Success</small>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-2 order-1 text-center fade-in-up">
                     <!-- Professional Placeholder Image -->
-                    <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Alex Sterling" class="img-fluid rounded-4 shadow-lg" style="max-height: 500px; object-fit: cover; margin: 0 auto; box-shadow: var(--shadow-lg);">
+                    <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Alex Sterling" class="img-fluid rounded-4 shadow-lg w-100" style="max-height: 500px; object-fit: cover; margin: 0 auto; box-shadow: var(--shadow-lg);">
                 </div>
             </div>
         </div>
     </header>
 
     <!-- About Section -->
-    <section id="about" class="py-5">
+    <section id="about" class="py-5 section-padding-mobile">
         <div class="container py-4">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center mb-5 fade-in-up">
@@ -352,32 +417,32 @@
                     <p class="text-secondary mb-4">
                         With over 8 years of hands-on experience in SAP FICO and S/4HANA migrations, I specialize in optimizing financial operations for global enterprises. My approach is simple: understand the business need first, then configure the technology to solve it efficiently.
                     </p>
-                    <p class="text-secondary mb-4">
+                    <p class="text-secondary mb-5">
                         I have led full-cycle implementations, managed cross-functional teams, and delivered training programs that empower finance teams to leverage SAP effectively.
                     </p>
-                    <div class="row g-3 mt-2">
+                    <div class="row g-3">
                         <div class="col-sm-6">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-check-circle text-primary me-2"></i>
-                                <span>S/4HANA Finance Migration</span>
+                            <div class="d-flex align-items-center p-3 bg-white rounded-3 border">
+                                <i class="fas fa-check-circle text-primary me-3"></i>
+                                <span class="fw-medium">S/4HANA Finance Migration</span>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-check-circle text-primary me-2"></i>
-                                <span>New GL Configuration</span>
+                            <div class="d-flex align-items-center p-3 bg-white rounded-3 border">
+                                <i class="fas fa-check-circle text-primary me-3"></i>
+                                <span class="fw-medium">New GL Configuration</span>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-check-circle text-primary me-2"></i>
-                                <span>COPA & Profitability Analysis</span>
+                            <div class="d-flex align-items-center p-3 bg-white rounded-3 border">
+                                <i class="fas fa-check-circle text-primary me-3"></i>
+                                <span class="fw-medium">COPA & Profitability</span>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-check-circle text-primary me-2"></i>
-                                <span>Process Re-engineering</span>
+                            <div class="d-flex align-items-center p-3 bg-white rounded-3 border">
+                                <i class="fas fa-check-circle text-primary me-3"></i>
+                                <span class="fw-medium">Process Re-engineering</span>
                             </div>
                         </div>
                     </div>
@@ -387,7 +452,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-5 bg-white">
+    <section id="skills" class="py-5 bg-white section-padding-mobile">
         <div class="container py-4">
             <div class="row justify-content-center mb-5 fade-in-up">
                 <div class="col-lg-8 text-center">
@@ -400,13 +465,14 @@
                 <!-- FI Module -->
                 <div class="col-md-4 fade-in-up">
                     <div class="custom-card">
-                        <div class="mb-3" style="color: var(--accent); font-size: 2rem;">
+                        <div class="mb-4" style="color: var(--accent); font-size: 2rem;">
                             <i class="fas fa-coins"></i>
                         </div>
-                        <h4 class="mb-3">Financial Accounting (FI)</h4>
-                        <div class="mb-2">
+                        <h4 class="mb-4">Financial Accounting (FI)</h4>
+                        <div>
                             <span class="skill-pill">General Ledger (GL)</span>
-                            <span class="skill-pill">Accounts Payable/Receivable</span>
+                            <span class="skill-pill">Accounts Payable</span>
+                            <span class="skill-pill">Accounts Receivable</span>
                             <span class="skill-pill">Asset Accounting</span>
                             <span class="skill-pill">Bank Management</span>
                             <span class="skill-pill">New GL</span>
@@ -417,16 +483,17 @@
                 <!-- CO Module -->
                 <div class="col-md-4 fade-in-up">
                     <div class="custom-card">
-                        <div class="mb-3" style="color: var(--accent); font-size: 2rem;">
+                        <div class="mb-4" style="color: var(--accent); font-size: 2rem;">
                             <i class="fas fa-chart-pie"></i>
                         </div>
-                        <h4 class="mb-3">Controlling (CO)</h4>
-                        <div class="mb-2">
-                            <span class="skill-pill">Cost Center Accounting</span>
-                            <span class="skill-pill">Profit Center Analysis</span>
+                        <h4 class="mb-4">Controlling (CO)</h4>
+                        <div>
+                            <span class="skill-pill">Cost Center Acct</span>
+                            <span class="skill-pill">Profit Center Acct</span>
                             <span class="skill-pill">Internal Orders</span>
                             <span class="skill-pill">Product Costing</span>
                             <span class="skill-pill">COPA</span>
+                            <span class="skill-pill">Budgeting</span>
                         </div>
                     </div>
                 </div>
@@ -434,13 +501,13 @@
                 <!-- Technical -->
                 <div class="col-md-4 fade-in-up">
                     <div class="custom-card">
-                        <div class="mb-3" style="color: var(--accent); font-size: 2rem;">
+                        <div class="mb-4" style="color: var(--accent); font-size: 2rem;">
                             <i class="fas fa-laptop-code"></i>
                         </div>
-                        <h4 class="mb-3">Technical & Tools</h4>
-                        <div class="mb-2">
+                        <h4 class="mb-4">Technical & Tools</h4>
+                        <div>
                             <span class="skill-pill">S/4HANA Migration</span>
-                            <span class="skill-pill">LSMW / Data Migration</span>
+                            <span class="skill-pill">LSMW / Data Mig</span>
                             <span class="skill-pill">Fiori Implementation</span>
                             <span class="skill-pill">ABAP Specs</span>
                             <span class="skill-pill">Excel & Power BI</span>
@@ -452,7 +519,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-5">
+    <section id="experience" class="py-5 section-padding-mobile">
         <div class="container py-4">
             <div class="row justify-content-center mb-5 fade-in-up">
                 <div class="col-lg-8 text-center">
@@ -467,30 +534,30 @@
                         <!-- Job 1 -->
                         <div class="timeline-item fade-in-up">
                             <span class="timeline-date">2021 - Present</span>
-                            <div class="custom-card p-4">
+                            <div class="custom-card p-4 mb-0">
                                 <h4 class="mb-1">Senior SAP FICO Consultant</h4>
                                 <h6 class="text-muted mb-3">TechGlobal Solutions • New York, USA</h6>
-                                <p class="text-secondary mb-2">Leading the S/4HANA Greenfield implementation for a Fortune 500 manufacturing client. Designed the New GL architecture with document splitting and parallel accounting.</p>
+                                <p class="text-secondary mb-0">Leading the S/4HANA Greenfield implementation for a Fortune 500 manufacturing client. Designed the New GL architecture with document splitting and parallel accounting.</p>
                             </div>
                         </div>
 
                         <!-- Job 2 -->
                         <div class="timeline-item fade-in-up">
                             <span class="timeline-date">2018 - 2021</span>
-                            <div class="custom-card p-4">
+                            <div class="custom-card p-4 mb-0">
                                 <h4 class="mb-1">SAP FICO Consultant</h4>
                                 <h6 class="text-muted mb-3">Consulting Partners Inc. • Berlin, Germany</h6>
-                                <p class="text-secondary mb-2">Managed rollouts for 12 European subsidiaries. Configured Automatic Payment Programs (APP) and resolved integration issues with MM and SD modules.</p>
+                                <p class="text-secondary mb-0">Managed rollouts for 12 European subsidiaries. Configured Automatic Payment Programs (APP) and resolved integration issues with MM and SD modules.</p>
                             </div>
                         </div>
 
                         <!-- Job 3 -->
                         <div class="timeline-item fade-in-up">
                             <span class="timeline-date">2015 - 2018</span>
-                            <div class="custom-card p-4">
+                            <div class="custom-card p-4 mb-0">
                                 <h4 class="mb-1">Junior FICO Analyst</h4>
                                 <h6 class="text-muted mb-3">Core Systems Ltd. • London, UK</h6>
-                                <p class="text-secondary mb-2">Supported ECC 6.0 environments, assisted in year-end closing activities, and created functional specifications for the ABAP team.</p>
+                                <p class="text-secondary mb-0">Supported ECC 6.0 environments, assisted in year-end closing activities, and created functional specifications for the ABAP team.</p>
                             </div>
                         </div>
                     </div>
@@ -500,7 +567,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-5 bg-white">
+    <section id="projects" class="py-5 bg-white section-padding-mobile">
         <div class="container py-4">
             <div class="row justify-content-center mb-5 fade-in-up">
                 <div class="col-lg-8 text-center">
@@ -512,14 +579,14 @@
             <div class="row g-4">
                 <!-- Project 1 -->
                 <div class="col-md-6 col-lg-4 fade-in-up">
-                    <div class="custom-card p-0 overflow-hidden">
+                    <div class="custom-card p-0 overflow-hidden border-0 shadow-md">
                         <div class="project-img-wrapper">
                             <img src="https://picsum.photos/seed/sap1/600/400" alt="S/4HANA Migration" class="project-img">
                         </div>
                         <div class="p-4">
                             <h4 class="mb-2">S/4HANA Migration</h4>
                             <p class="text-secondary mb-3">Led the migration from ECC 6.0 to S/4HANA for a multi-national retail giant, reducing month-end closing time by 40%.</p>
-                            <div class="mb-3">
+                            <div class="mb-4">
                                 <span class="badge bg-light text-secondary border me-1">S/4HANA</span>
                                 <span class="badge bg-light text-secondary border">Migration</span>
                             </div>
@@ -530,14 +597,14 @@
 
                 <!-- Project 2 -->
                 <div class="col-md-6 col-lg-4 fade-in-up">
-                    <div class="custom-card p-0 overflow-hidden">
+                    <div class="custom-card p-0 overflow-hidden border-0 shadow-md">
                         <div class="project-img-wrapper">
                             <img src="https://picsum.photos/seed/sap2/600/400" alt="Global Rollout" class="project-img">
                         </div>
                         <div class="p-4">
                             <h4 class="mb-2">Global Finance Rollout</h4>
                             <p class="text-secondary mb-3">Standardized finance processes across 15 countries in APAC and EMEA regions, ensuring compliance with local GAAP.</p>
-                            <div class="mb-3">
+                            <div class="mb-4">
                                 <span class="badge bg-light text-secondary border me-1">Rollout</span>
                                 <span class="badge bg-light text-secondary border">Compliance</span>
                             </div>
@@ -548,14 +615,14 @@
 
                 <!-- Project 3 -->
                 <div class="col-md-6 col-lg-4 fade-in-up">
-                    <div class="custom-card p-0 overflow-hidden">
+                    <div class="custom-card p-0 overflow-hidden border-0 shadow-md">
                         <div class="project-img-wrapper">
                             <img src="https://picsum.photos/seed/sap3/600/400" alt="COPA Implementation" class="project-img">
                         </div>
                         <div class="p-4">
                             <h4 class="mb-2">COPA Implementation</h4>
                             <p class="text-secondary mb-3">Designed and implemented Profitability Analysis (COPA) to provide real-time margin analysis at the customer and product level.</p>
-                            <div class="mb-3">
+                            <div class="mb-4">
                                 <span class="badge bg-light text-secondary border me-1">COPA</span>
                                 <span class="badge bg-light text-secondary border">Reporting</span>
                             </div>
@@ -568,7 +635,7 @@
     </section>
 
     <!-- Education & Certs -->
-    <section id="education" class="py-5">
+    <section id="education" class="py-5 section-padding-mobile">
         <div class="container py-4">
             <div class="row justify-content-center mb-5 fade-in-up">
                 <div class="col-lg-8 text-center">
@@ -583,7 +650,7 @@
                         <i class="fas fa-university fa-2x mb-3 text-primary"></i>
                         <h5>Master of Finance</h5>
                         <p class="text-secondary mb-0">London School of Economics</p>
-                        <small class="text-muted">2013 - 2015</small>
+                        <small class="text-muted fw-bold">2013 - 2015</small>
                     </div>
                 </div>
                 <div class="col-md-5 fade-in-up">
@@ -591,7 +658,7 @@
                         <i class="fas fa-certificate fa-2x mb-3 text-primary"></i>
                         <h5>SAP Certified Associate</h5>
                         <p class="text-secondary mb-0">Application Associate - FICO</p>
-                        <small class="text-muted">Certified 2016</small>
+                        <small class="text-muted fw-bold">Certified 2016</small>
                     </div>
                 </div>
             </div>
@@ -599,7 +666,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-white">
+    <section id="contact" class="py-5 bg-white section-padding-mobile">
         <div class="container py-4">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 fade-in-up">
@@ -607,16 +674,16 @@
                     <p class="text-secondary mb-5">I am currently open to senior consulting roles and advisory projects. If you are looking to optimize your SAP landscape, let's start a conversation.</p>
                     
                     <div class="d-flex flex-column gap-4">
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center p-3 bg-white border rounded-3">
                             <div class="contact-icon me-3">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div>
                                 <h6 class="mb-0 fw-bold">Email Me</h6>
-                                <a href="mailto:hello@alexsterling.com" class="text-secondary">hello@alexsterling.com</a>
+                                <a href="mailto:hello@alexsterling.com" class="text-secondary text-decoration-none">hello@alexsterling.com</a>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center p-3 bg-white border rounded-3">
                             <div class="contact-icon me-3">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
@@ -625,13 +692,13 @@
                                 <span class="text-secondary">New York, NY (Open to Remote)</span>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center p-3 bg-white border rounded-3">
                             <div class="contact-icon me-3">
                                 <i class="fab fa-linkedin-in"></i>
                             </div>
                             <div>
                                 <h6 class="mb-0 fw-bold">LinkedIn</h6>
-                                <a href="#" class="text-secondary">linkedin.com/in/alexsterling</a>
+                                <a href="#" class="text-secondary text-decoration-none">linkedin.com/in/alexsterling</a>
                             </div>
                         </div>
                     </div>
@@ -642,15 +709,15 @@
                         <form>
                             <div class="mb-3">
                                 <label for="name" class="form-label fw-bold text-muted small">Full Name</label>
-                                <input type="text" class="form-control bg-white border-0 py-3" id="name" placeholder="John Doe">
+                                <input type="text" class="form-control" id="name" placeholder="John Doe">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label fw-bold text-muted small">Email Address</label>
-                                <input type="email" class="form-control bg-white border-0 py-3" id="email" placeholder="john@example.com">
+                                <input type="email" class="form-control" id="email" placeholder="john@example.com">
                             </div>
                             <div class="mb-4">
                                 <label for="message" class="form-label fw-bold text-muted small">Message</label>
-                                <textarea class="form-control bg-white border-0" id="message" rows="4" placeholder="Tell me about your project..."></textarea>
+                                <textarea class="form-control" id="message" rows="4" placeholder="Tell me about your project..."></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary w-100 py-3">Send Message</button>
                         </form>
