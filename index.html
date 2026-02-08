@@ -333,6 +333,34 @@
             
             .btn { width: 100%; }
         }
+        .hero-image-wrapper {
+  max-width: 380px;          /* controls visual dominance */
+  margin-left: auto;        /* aligns image to right */
+}
+
+.hero-profile-img {
+  width: 100%;
+  aspect-ratio: 4 / 5;      /* portrait ratio */
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .hero-image-wrapper {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .hero-image-wrapper {
+    max-width: 240px;       /* 👈 key fix */
+  }
+}
+
     </style>
 </head>
 <body>
