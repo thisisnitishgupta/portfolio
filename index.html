@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nitish Gupta: SAP FICO Consultant Portfolio</title>
-    <meta name="description" content="Portfolio of a Senior SAP FICO Consultant specializing in S/4HANA, Implementations, and Rollouts.">
+    <title>John Doe | Senior SAP FICO Consultant</title>
+    <meta name="description" content="Premium Portfolio of a Senior SAP FICO Consultant.">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Outfit (Headings) & Inter (Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* --- VARIABLES --- */
+        /* --- VARIABLES & THEME --- */
         :root {
-            /* Light Theme Palette */
-            --bg-body: #f8fafc;
-            --bg-white: #ffffff;
-            --primary: #0056b3;
-            --primary-dark: #004494;
-            --accent: #0ea5e9;
+            --bg-body: #f0f4f8;
+            --bg-glass: rgba(255, 255, 255, 0.7);
+            --bg-card: #ffffff;
+            --primary: #2563eb;       /* Vibrant Royal Blue */
+            --primary-dark: #1e40af;
+            --secondary: #0f172a;     /* Deep Navy */
+            --accent: #06b6d4;        /* Cyan for gradients */
             --text-main: #1e293b;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-            --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
-            --radius: 12px;
-            --container-width: 1100px; /* Slightly narrower for better padding on desktop */
+            --text-light: #64748b;
+            --border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.1), 0 10px 20px -5px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 25px 50px -12px rgba(37, 99, 235, 0.25);
+            --radius: 24px;
             --nav-height: 80px;
         }
 
@@ -37,612 +38,486 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-body);
             color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden; /* Prevents horizontal scroll on mobile */
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 { color: var(--text-main); line-height: 1.2; margin-bottom: 10px; }
-        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; color: var(--secondary); line-height: 1.2; }
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         ul { list-style: none; }
         img { max-width: 100%; display: block; }
 
         /* --- UTILITIES --- */
         .container {
-            max-width: var(--container-width);
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-        .section-padding { padding: 80px 0; } /* Reduced top/bottom padding for mobile */
-        .text-center { text-align: center; }
-        .text-primary { color: var(--primary); }
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed; top: 0; left: 0; height: 4px; background: var(--primary);
+            width: 0%; z-index: 1001; transition: width 0.1s;
+        }
 
-        /* Buttons */
-        .btn {
-            display: inline-flex;
+        /* --- NAVIGATION (Glassmorphism) --- */
+        header {
+            position: fixed;
+            top: 20px; left: 0; width: 100%;
+            z-index: 1000;
+            padding: 0 24px;
+            pointer-events: none; /* Let clicks pass through outside the nav */
+        }
+
+        nav {
+            pointer-events: auto;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            padding: 15px 30px;
+            border-radius: 100px;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            position: relative;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        
+        .hamburger { display: none; font-size: 1.4rem; cursor: pointer; color: var(--secondary); background: white; padding: 10px; border-radius: 50%; box-shadow: var(--shadow); }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: var(--nav-height);
+            overflow: hidden;
+        }
+
+        /* Animated Background Blobs */
+        .blob {
+            position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.6; z-index: -1;
+        }
+        .blob-1 { top: -10%; right: -5%; width: 500px; height: 500px; background: #dbeafe; }
+        .blob-2 { bottom: -10%; left: -5%; width: 400px; height: 400px; background: #e0f2fe; }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            color: var(--secondary);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 550px;
+        }
+
+        .hero-btn-group { display: flex; gap: 15px; }
+
+        .btn {
             padding: 14px 32px;
             border-radius: 50px;
             font-weight: 600;
             font-size: 1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            width: fit-content; /* Default width */
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex; align-items: center; gap: 8px;
         }
 
         .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            box-shadow: 0 4px 14px rgba(0, 86, 179, 0.3);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .btn-outline:hover {
             background: var(--primary);
             color: white;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
         }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4); background: var(--primary-dark); }
 
-        /* --- HEADER --- */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
-            height: var(--nav-height);
-            display: flex;
-            align-items: center;
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--secondary);
+            border: 1px solid rgba(0,0,0,0.05);
+            backdrop-filter: blur(5px);
         }
+        .btn-glass:hover { background: white; transform: translateY(-3px); box-shadow: var(--shadow); }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: -0.5px;
-            z-index: 1002; /* Ensure logo is above mobile menu overlay */
-        }
-
-        .nav-links { 
-            display: flex; 
-            gap: 40px; 
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
-        
-        /* Mobile Hamburger */
-        .hamburger { 
-            display: none; 
-            font-size: 1.5rem; 
-            cursor: pointer; 
-            color: var(--text-main);
-            z-index: 1002;
-        }
-
-        /* --- HERO SECTION --- */
-        #hero {
-            padding-top: calc(var(--nav-height) + 40px);
-            padding-bottom: 60px;
-            background: radial-gradient(circle at top right, #e0f2fe 0%, transparent 40%);
-        }
-
-        .hero-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: #0f172a;
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            max-width: 500px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-        }
-
-        .stat h4 { font-size: 1.8rem; color: var(--primary); font-weight: 700; }
-        .stat p { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
-
-        /* Hero Image */
-        .hero-img-box {
-            position: relative;
+        /* 3D Tilt Card Container */
+        .hero-img-wrapper {
+            perspective: 1000px;
             display: flex;
             justify-content: center;
+        }
+        .hero-card {
+            width: 100%; max-width: 400px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
         }
         .hero-img {
             width: 100%;
-            max-width: 400px;
-            height: auto;
             border-radius: 20px;
-            box-shadow: var(--shadow);
-            z-index: 2;
-            animation: float 6s ease-in-out infinite;
-        }
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            z-index: 1;
-            opacity: 0.5;
-        }
-        .shape-1 { width: 250px; height: 250px; background: #bae6fd; bottom: -20px; right: 0; z-index: 1; }
-        .shape-2 { width: 80px; height: 80px; background: var(--primary); top: 20px; left: 20px; z-index: 3; border-radius: 12px; opacity: 0.1; }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
+            transform: translateZ(20px); /* Pops out of card */
         }
 
-        /* --- SKILLS SECTION --- */
-        .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 10px; }
-        .section-title p { color: var(--text-muted); font-size: 1rem; }
+        /* Stats Strip */
+        .stats-strip {
+            margin-top: 60px;
+            display: flex; gap: 40px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 30px;
+        }
+        .stat-item h3 { font-size: 2.5rem; color: var(--primary); font-weight: 800; margin-bottom: 0; line-height: 1; }
+        .stat-item p { font-size: 0.9rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-top: 5px; }
 
-        .skills-grid {
+        /* --- SECTIONS GENERAL --- */
+        section { padding: 100px 0; }
+        .section-header { text-align: center; margin-bottom: 80px; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 15px; }
+        .section-header p { color: var(--text-light); max-width: 600px; margin: 0 auto; }
+
+        /* --- SKILLS GRID (Masonry-ish) --- */
+        .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            gap: 24px;
         }
 
         .skill-card {
-            background: var(--bg-white);
-            padding: 30px;
+            background: var(--bg-card);
+            padding: 40px 30px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-            transition: 0.3s;
-            height: 100%; /* Ensure equal height */
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.02);
         }
 
-        .skill-card:hover { transform: translateY(-5px); border-color: var(--primary); }
-
-        .skill-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--primary);
+        .skill-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
         }
 
-        .skill-list li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: flex-start; /* Align top for wrapped text */
-            gap: 10px;
-            color: var(--text-main);
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-        .skill-list li i { color: var(--accent); font-size: 0.8rem; margin-top: 4px; }
+        .skill-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
+        .skill-card:hover::before { transform: scaleX(1); }
 
-        /* --- TIMELINE --- */
-        .timeline { position: relative; max-width: 900px; margin: 0 auto; }
+        .skill-icon {
+            width: 60px; height: 60px; background: #eff6ff; border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; color: var(--primary); margin-bottom: 24px;
+        }
+
+        .skill-card h3 { font-size: 1.4rem; margin-bottom: 20px; }
         
-        /* Vertical Line */
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tag {
+            padding: 6px 14px; background: #f8fafc; color: var(--text-main);
+            border-radius: 8px; font-size: 0.85rem; font-weight: 500;
+            border: 1px solid #e2e8f0;
+        }
+        .skill-card:hover .tag { background: #eff6ff; border-color: var(--primary); color: var(--primary); }
+
+        /* --- TIMELINE (Vertical Stream) --- */
+        .timeline { position: relative; max-width: 900px; margin: 0 auto; }
         .timeline::after {
-            content: '';
-            position: absolute;
-            width: 3px;
-            background-color: var(--border);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1.5px;
+            content: ''; position: absolute; width: 2px; background: #cbd5e1;
+            top: 0; bottom: 0; left: 50%; margin-left: -1px;
         }
 
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
+        .t-item { padding: 0 40px; position: relative; width: 50%; }
+        .t-item::after {
+            content: ''; position: absolute; width: 20px; height: 20px;
+            background: white; border: 4px solid var(--primary); border-radius: 50%;
+            top: 25px; z-index: 1; transition: 0.3s;
         }
+        .t-item:hover::after { background: var(--primary); transform: scale(1.2); }
 
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 18px;
-            height: 18px;
-            right: -9px;
-            background-color: var(--bg-white);
-            border: 4px solid var(--primary);
-            top: 20px;
-            border-radius: 50%;
-            z-index: 1;
-        }
+        .t-left { left: 0; text-align: right; }
+        .t-left::after { right: -10px; }
+        .t-right { left: 50%; }
+        .t-right::after { left: -10px; }
 
-        .left { left: 0; text-align: right; }
-        .right { left: 50%; }
-        .right::after { left: -9px; }
+        .t-card {
+            background: var(--bg-card); padding: 30px; border-radius: 20px;
+            box-shadow: var(--shadow); transition: 0.3s;
+        }
+        .t-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+        .t-date { color: var(--primary); font-weight: 700; font-size: 0.9rem; display: block; margin-bottom: 5px; }
+        .t-role { font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-bottom: 5px; }
+        .t-company { color: var(--text-light); font-weight: 500; margin-bottom: 15px; display: block; }
+        .t-desc li { color: var(--text-light); font-size: 0.95rem; margin-bottom: 8px; position: relative; padding-left: 20px; list-style: none; }
+        .t-desc li::before { content: '•'; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
 
-        .timeline-content {
-            padding: 25px;
-            background-color: var(--bg-white);
-            position: relative;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
-
-        .timeline-date {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .timeline-content h3 { font-size: 1.2rem; margin-bottom: 2px; }
-        .timeline-content h4 { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; margin-bottom: 12px; }
-        .timeline-content ul { padding-left: 0; list-style: none; color: var(--text-muted); text-align: left; }
-        .timeline-content li { 
-            margin-bottom: 6px; 
-            position: relative; 
-            padding-left: 15px;
-            font-size: 0.9rem;
-        }
-        /* Custom bullet points for timeline list */
-        .timeline-content li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        /* --- CERTIFICATIONS --- */
-        .cert-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
-        .cert-badge {
-            background: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            border: 1px solid var(--border);
-            font-weight: 600;
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            font-size: 0.9rem;
+        /* --- CERTS & CONTACT --- */
+        .cert-grid { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .cert-pill {
+            background: white; padding: 15px 25px; border-radius: 12px;
+            box-shadow: var(--shadow); font-weight: 600; color: var(--text-main);
+            display: flex; align-items: center; gap: 10px; border: 1px solid rgba(0,0,0,0.03);
             transition: 0.3s;
-            width: 100%; /* Full width on mobile */
-            max-width: 300px;
-            justify-content: center;
         }
-        .cert-badge:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-3px); }
-        .cert-badge i { font-size: 1.1rem; color: var(--accent); }
+        .cert-pill:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .cert-pill i { color: var(--accent); }
 
-        /* --- CONTACT --- */
-        #contact { background-color: var(--bg-white); }
-        .contact-card {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            padding: 50px 30px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 86, 179, 0.2);
+        .cta-box {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white; padding: 60px; border-radius: 30px; text-align: center;
+            position: relative; overflow: hidden;
         }
-        .contact-card h2 { color: white; margin-bottom: 15px; font-size: 1.8rem; }
-        .contact-card p { opacity: 0.9; margin-bottom: 30px; font-size: 1rem; }
-        .contact-btn {
-            background: white;
-            color: var(--primary);
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            width: 100%; /* Full width mobile */
-            max-width: 300px;
-        }
-        .contact-btn:hover { transform: scale(1.02); }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: #1e293b;
-            color: #94a3b8;
-            padding: 30px 0;
-            text-align: center;
-            font-size: 0.85rem;
-        }
-
-        /* --- MOBILE OPTIMIZATION (< 768px) --- */
-        @media screen and (max-width: 768px) {
-            :root {
-                --nav-height: 70px;
-            }
-
-            /* 1. Navigation */
-            .nav-links {
-                position: fixed;
-                top: 0; right: 0;
-                width: 75%; /* Slide out menu */
-                height: 100vh;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-                transform: translateX(100%);
-                transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-                z-index: 1001;
-            }
-
-            .nav-links.active { transform: translateX(0); }
-            .nav-links a { font-size: 1.2rem; margin: 15px 0; }
-            .hamburger { display: block; }
-
-            /* 2. Hero Section */
-            .hero-wrapper {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 40px;
-            }
-            .hero-content h1 { font-size: 2.5rem; }
-            .hero-subtitle { margin: 0 auto 30px auto; }
-            .hero-buttons { justify-content: center; }
-            .btn { width: 100%; /* Full width buttons on mobile */ max-width: 280px; }
+        .cta-box h2 { color: white; margin-bottom: 15px; }
+        .cta-box p { opacity: 0.8; margin-bottom: 30px; font-size: 1.1rem; }
+        
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .hero-btn-group { justify-content: center; }
+            .stats-strip { justify-content: center; }
+            .hero-content h1 { font-size: 2.8rem; }
             
-            .hero-stats {
-                justify-content: center;
-                gap: 20px;
-                flex-wrap: wrap;
+            /* Mobile Nav Overlay */
+            .hamburger { display: block; }
+            .nav-links {
+                position: fixed; top: 0; right: 0; width: 80%; height: 100vh;
+                background: white; flex-direction: column; justify-content: center;
+                align-items: center; z-index: 1001;
+                transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
             }
-            .stat { flex: 1 1 40%; } /* Stats take up half width on small screens */
+            .nav-links.active { transform: translateX(0); }
+            .nav-links a { font-size: 1.2rem; margin: 15px 0; opacity: 0; transform: translateY(20px); transition: all 0.4s ease; }
+            .nav-links.active a { opacity: 1; transform: translateY(0); }
+            .nav-links.active a:nth-child(1) { transition-delay: 0.1s; }
+            .nav-links.active a:nth-child(2) { transition-delay: 0.2s; }
+            .nav-links.active a:nth-child(3) { transition-delay: 0.3s; }
+            .nav-links.active a:nth-child(4) { transition-delay: 0.4s; }
+            .nav-links.active a:nth-child(5) { transition-delay: 0.5s; }
 
-            /* 3. Timeline (Left Aligned for Mobile) */
-            .timeline::after { left: 20px; } /* Move line to left */
-            .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; }
-            .timeline-item::after { left: 11px; } /* Move dot to left */
-            .timeline-item.left, .timeline-item.right { left: 0; text-align: left; }
-            .timeline-item.left::after, .timeline-item.right::after { left: 11px; }
-
-            /* 4. Skills */
-            .skills-grid { grid-template-columns: 1fr; } /* 1 column stack */
-            .skill-card { padding: 20px; }
-
-            /* 5. Certs */
-            .cert-grid { flex-direction: column; }
-            .cert-badge { width: 100%; max-width: none; }
+            /* Mobile Timeline */
+            .timeline::after { left: 30px; }
+            .t-item { width: 100%; padding-left: 70px; padding-right: 20px; }
+            .t-item::after { left: 20px; }
+            .t-left, .t-right { left: 0; text-align: left; }
         }
 
-        /* Scroll Animation Utility */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        /* Animation Classes */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
 
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="progressBar"></div>
+
     <!-- Header -->
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Nitish<span class="text-primary">Gupta</span>. </div>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#hero" onclick="toggleMenu()">Home</a></li>
-                    <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                    <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
-                    <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-                    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-                </ul>
-                <div class="hamburger" id="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
+        <nav>
+            <div class="logo">John<span class="gradient-text">Doe.</span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" onclick="toggleMenu()">Home</a></li>
+                <li><a href="#skills" onclick="toggleMenu()">Expertise</a></li>
+                <li><a href="#experience" onclick="toggleMenu()">Journey</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
     </header>
 
     <main>
         <!-- Hero Section -->
         <section id="hero">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            
             <div class="container">
-                <div class="hero-wrapper">
+                <div class="hero-grid">
                     <div class="hero-content reveal">
-                        <span style="color: var(--primary); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem;">SAP FICO Consultant</span>
-                        <h1>Optimizing Financial <br><span class="text-primary">Processes & Systems</span></h1>
-                        <p class="hero-subtitle">Expert in End-to-End Implementations, S/4HANA Migrations, and Business Process Re-engineering for global enterprises.</p>
+                        <div class="hero-badge">Available for Consultancy</div>
+                        <h1>Optimizing Finance with <span class="gradient-text">SAP S/4HANA</span></h1>
+                        <p>I bridge the gap between business strategy and technical execution. Transforming complex financial landscapes into streamlined, data-driven ecosystems.</p>
                         
-                        <div class="hero-buttons">
-                            <a href="#contact" class="btn btn-primary">Hire Me <i class="fas fa-arrow-right"></i></a>
-                            <a href="https://github.com/thisisnitishgupta/portfolio/blob/main/Nitish%20Kumar%20Gupta%20-%20SAP%20FICO%20Consultant%20Resume.pdf" class="btn btn-outline"><i class="fas fa-download"></i> Download CV</a>
+                        <div class="hero-btn-group">
+                            <a href="#contact" class="btn btn-primary">Start a Project <i class="fas fa-arrow-right"></i></a>
+                            <a href="#experience" class="btn btn-glass">View Experience</a>
                         </div>
 
-                        <div class="hero-stats">
-                            <div class="stat">
-                                <h4>4+</h4>
+                        <div class="stats-strip">
+                            <div class="stat-item">
+                                <h3 data-target="8">0</h3>
                                 <p>Years Exp.</p>
                             </div>
-                            <div class="stat">
-                                <h4>3+</h4>
+                            <div class="stat-item">
+                                <h3 data-target="15">0</h3>
                                 <p>Projects</p>
                             </div>
-                            <div class="stat">
-                                <h4>2</h4>
-                                <p>Certifications</p>
+                            <div class="stat-item">
+                                <h3 data-target="5">0</h3>
+                                <p>Certs</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="hero-img-box reveal">
-                        <div class="shape shape-1"></div>
-                        <div class="shape shape-2"></div>
-                        <!-- REPLACE WITH YOUR PROFESSIONAL PHOTO -->
-                        <img src="https://github.com/thisisnitishgupta/portfolio/blob/main/photo.jpeg?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Consultant Profile" class="hero-img">
+                    <div class="hero-img-wrapper reveal" id="tiltCard">
+                        <div class="hero-card">
+                            <!-- REPLACE WITH YOUR PHOTO -->
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Profile" class="hero-img">
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="section-padding">
-            <div class="container">
-                <div class="section-title reveal">
-                    <h2>About Me</h2>
-                    <p>Driving digital transformation in Finance & Controlling</p>
-                </div>
-                <div style="max-width: 800px; margin: 0 auto; text-align: center;" class="reveal">
-                    <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px;">
-                        SAP Certified FICO Consultant with 4.5+ years of total SAP experience, specializing in SAP Finance (FI) with strong exposure across system upgrades, data migration, and AMS support projects. Strong hands-on experience in GL, AP, AR, Asset Accounting, Bank Accounting, Cost Center Accounting, and CO integrations. Proven ability to handle end-to-end data migration, system decommissioning, and interface dependency analysis, UAT/regression testing, and stakeholder coordination in global delivery environments.
-                    </p>
                 </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="section-padding" style="background-color: #f1f5f9;">
+        <section id="skills">
             <div class="container">
-                <div class="section-title reveal">
-                    <h2>Core Competencies</h2>
-                    <p>Functional & Technical Expertise</p>
+                <div class="section-header reveal">
+                    <h2>Core Expertise</h2>
+                    <p>Specialized functional skills tailored for modern enterprise finance.</p>
                 </div>
 
-                <div class="skills-grid">
-                    <!-- Functional Skills -->
+                <div class="skills-container">
+                    <!-- Card 1 -->
                     <div class="skill-card reveal">
-                        <h3><i class="fas fa-chart-line"></i> Functional Finance (FI)</h3>
-                        <ul class="skill-list">
-                            <li><i class="fas fa-check-circle"></i> General Ledger (GL) & New GL</li>
-                            <li><i class="fas fa-check-circle"></i> Accounts Payable (AP) & Receivable (AR)</li>
-                            <li><i class="fas fa-check-circle"></i> Asset Accounting (AA)</li>
-                            <li><i class="fas fa-check-circle"></i> Bank Management & Cash Management</li>
-                            <li><i class="fas fa-check-circle"></i> Document Splitting</li>
-                            <li><i class="fas fa-check-circle"></i> Dunning & Correspondence</li>
-                        </ul>
+                        <div class="skill-icon"><i class="fas fa-coins"></i></div>
+                        <h3>Financial Accounting (FI)</h3>
+                        <div class="tag-cloud">
+                            <span class="tag">New GL</span>
+                            <span class="tag">AP/AR</span>
+                            <span class="tag">Asset Accounting</span>
+                            <span class="tag">Bank Mgt</span>
+                            <span class="tag">Doc Splitting</span>
+                        </div>
                     </div>
 
-                    <!-- Controlling Skills -->
+                    <!-- Card 2 -->
                     <div class="skill-card reveal">
-                        <h3><i class="fas fa-briefcase"></i> Controlling (CO)</h3>
-                        <ul class="skill-list">
-                            <li><i class="fas fa-check-circle"></i> Cost Center Accounting (CCA)</li>
-                            <li><i class="fas fa-check-circle"></i> Profit Center Accounting (PCA)</li>
-                            <li><i class="fas fa-check-circle"></i> Internal Orders (IO)</li>
-                            <li><i class="fas fa-check-circle"></i> Product Cost Controlling (PC)</li>
-                            <li><i class="fas fa-check-circle"></i> Profitability Analysis (COPA)</li>
-                            <li><i class="fas fa-check-circle"></i> Budgeting & Planning (BPS)</li>
-                        </ul>
+                        <div class="skill-icon"><i class="fas fa-chart-pie"></i></div>
+                        <h3>Controlling (CO)</h3>
+                        <div class="tag-cloud">
+                            <span class="tag">COPA</span>
+                            <span class="tag">Cost Centers</span>
+                            <span class="tag">Profit Centers</span>
+                            <span class="tag">Internal Orders</span>
+                            <span class="tag">Product Costing</span>
+                        </div>
                     </div>
 
-                    <!-- Technical & Integration -->
+                    <!-- Card 3 -->
                     <div class="skill-card reveal">
-                        <h3><i class="fas fa-laptop-code"></i> Technical & Tools</h3>
-                        <ul class="skill-list">
-                            <li><i class="fas fa-check-circle"></i> SAP S/4HANA Finance Migration</li>
-                            <li><i class="fas fa-check-circle"></i> ECC 6.0 Configuration</li>
-                            <li><i class="fas fa-check-circle"></i> Integration with SD, MM, PP</li>
-                            <li><i class="fas fa-check-circle"></i> Fiori Apps for Finance</li>
-                            <li><i class="fas fa-check-circle"></i> SAP Business Objects (BO)</li>
-                            <li><i class="fas fa-check-circle"></i> LSMW / Data Migration</li>
-                        </ul>
+                        <div class="skill-icon"><i class="fas fa-database"></i></div>
+                        <h3>Migration & Tech</h3>
+                        <div class="tag-cloud">
+                            <span class="tag">S/4HANA Migration</span>
+                            <span class="tag">LSMW</span>
+                            <span class="tag">Fiori Apps</span>
+                            <span class="tag">BPC</span>
+                            <span class="tag">ABAP Specs</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Timeline -->
-        <section id="experience" class="section-padding">
+        <!-- Experience Section -->
+        <section id="experience" style="background-color: white;">
             <div class="container">
-                <div class="section-title reveal">
-                    <h2>Professional Experience</h2>
-                    <p>A track record of successful implementations</p>
+                <div class="section-header reveal">
+                    <h2>Professional Journey</h2>
+                    <p>A track record of successful global implementations.</p>
                 </div>
 
                 <div class="timeline">
-                    <!-- Job 1 -->
-                    <div class="timeline-item left reveal">
-                        <div class="timeline-content">
-                            <span class="timeline-date">2020 - Present</span>
-                            <h3>Senior SAP FICO Consultant</h3>
-                            <h4>TechGlobal Solutions | USA</h4>
-                            <ul>
-                                <li>Leading the S/4HANA Greenfield implementation for a Fortune 500 Manufacturing client.</li>
-                                <li>Configured New GL with Document Splitting and Parallel Accounting.</li>
-                                <li>Designed and implemented COPA derivation rules for profitability reporting.</li>
-                                <li>Managed a team of 3 junior consultants and coordinated with offshore ABAP team.</li>
+                    <!-- Item 1 -->
+                    <div class="t-item t-left reveal">
+                        <div class="t-card">
+                            <span class="t-date">2020 - Present</span>
+                            <h3 class="t-role">Senior SAP FICO Consultant</h3>
+                            <span class="t-company">TechGlobal Solutions, USA</span>
+                            <ul class="t-desc">
+                                <li>Spearheaded S/4HANA Greenfield implementation for Fortune 500 client.</li>
+                                <li>Designed New GL architecture with Document Splitting.</li>
+                                <li>Led COPA integration for real-time profitability reporting.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Job 2 -->
-                    <div class="timeline-item right reveal">
-                        <div class="timeline-content">
-                            <span class="timeline-date">2017 - 2020</span>
-                            <h3>SAP FICO Consultant</h3>
-                            <h4>Consulting Partners Inc. | Germany</h4>
-                            <ul>
-                                <li>Performed end-to-end Rollout projects for European subsidiaries of a global Retail giant.</li>
-                                <li>Configured Automatic Payment Programs (APP) for multiple countries (US, UK, FR).</li>
-                                <li>Handled Integration testing with MM (Inventory Valuation) and SD (Revenue Recognition).</li>
-                                <li>Resolved critical production issues and provided user training (UAT).</li>
+                    <!-- Item 2 -->
+                    <div class="t-item t-right reveal">
+                        <div class="t-card">
+                            <span class="t-date">2017 - 2020</span>
+                            <h3 class="t-role">SAP FICO Consultant</h3>
+                            <span class="t-company">Consulting Partners, Germany</span>
+                            <ul class="t-desc">
+                                <li>Managed European Rollouts for a Retail giant.</li>
+                                <li>Configured APP (Automatic Payment Programs) for 10+ countries.</li>
+                                <li>Resolved critical production gaps and conducted UAT training.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Job 3 -->
-                    <div class="timeline-item left reveal">
-                        <div class="timeline-content">
-                            <span class="timeline-date">2015 - 2017</span>
-                            <h3>Junior FICO Analyst</h3>
-                            <h4>Core Systems Ltd. | India</h4>
-                            <ul>
-                                <li>Supported SAP ECC 6.0 environments for 10+ clients.</li>
-                                <li>Assisted in Year-End Closing activities and Asset Capitalization.</li>
-                                <li>Created functional specifications for ABAP developments (Smartforms, BAPIs).</li>
+                    <!-- Item 3 -->
+                    <div class="t-item t-left reveal">
+                        <div class="t-card">
+                            <span class="t-date">2015 - 2017</span>
+                            <h3 class="t-role">FICO Analyst</h3>
+                            <span class="t-company">Core Systems, India</span>
+                            <ul class="t-desc">
+                                <li>Supported ECC 6.0 environments for multiple clients.</li>
+                                <li>Assisted in Year-End Closing activities.</li>
+                                <li>Created Functional Specs for ABAP team.</li>
                             </ul>
                         </div>
                     </div>
@@ -651,75 +526,127 @@
         </section>
 
         <!-- Certifications -->
-        <section id="certifications" class="section-padding" style="background-color: #f1f5f9;">
+        <section id="certifications">
             <div class="container">
-                <div class="section-title reveal">
+                <div class="section-header reveal">
                     <h2>Certifications</h2>
                 </div>
                 <div class="cert-grid reveal">
-                    <div class="cert-badge"><i class="fas fa-certificate"></i> SAP Certified Application Associate - FICO</div>
-                    <div class="cert-badge"><i class="fas fa-certificate"></i> SAP S/4HANA Migration</div>
-                    <div class="cert-badge"><i class="fas fa-certificate"></i> SAP Management Accounting</div>
-                    <div class="cert-badge"><i class="fas fa-graduation-cap"></i> CMA (Certified Management Accountant)</div>
+                    <div class="cert-pill"><i class="fas fa-certificate"></i> SAP FICO Associate</div>
+                    <div class="cert-pill"><i class="fas fa-certificate"></i> S/4HANA Migration</div>
+                    <div class="cert-pill"><i class="fas fa-graduation-cap"></i> CMA Certified</div>
+                    <div class="cert-pill"><i class="fas fa-award"></i> PMP Trained</div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact CTA -->
-        <section id="contact" class="section-padding">
+        <!-- Contact -->
+        <section id="contact">
             <div class="container">
-                <div class="contact-card reveal">
-                    <h2>Ready to Optimize Your Finance Processes?</h2>
-                    <p>I am currently available for new projects and consulting opportunities. Let's discuss how I can add value to your SAP landscape.</p>
-                    <a href="mailto:kkumarnitish61@gmail.com" class="contact-btn">Get In Touch</a>
-                    
-                    <div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px;">
-                        <a href="https://www.linkedin.com/in/nitishkg/" style="color: white; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fas fa-envelope"></i></a>
-                    </div>
+                <div class="cta-box reveal">
+                    <h2>Let's Transform Your Finance</h2>
+                    <p>Open for Senior Consultant roles and advisory projects.</p>
+                    <a href="mailto:email@example.com" class="btn btn-glass" style="background: white; color: var(--secondary);">Get In Touch <i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <footer>
+    <footer style="background: white; padding: 30px 0; text-align: center; border-top: 1px solid #eee; color: var(--text-light); font-size: 0.9rem;">
         <div class="container">
-            <p>&copy; 2026 Nitish Kumar Gupta. All Rights Reserved. | Designed with Love</p>
+            <p>&copy; 2023 John Doe. Designed for Excellence.</p>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script>
-        // Mobile Menu Toggle
+        // 1. Mobile Menu with Staggered Animation
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         const icon = hamburger.querySelector('i');
         const links = document.querySelectorAll('.nav-links a');
+        let isMenuOpen = false;
 
         function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
             navLinks.classList.toggle('active');
-            if(navLinks.classList.contains('active')) {
+            
+            if(isMenuOpen) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
-                document.body.style.overflow = 'hidden'; // Stop scrolling when menu is open
+                document.body.style.overflow = 'hidden';
             } else {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
-                document.body.style.overflow = 'auto'; // Resume scrolling
+                document.body.style.overflow = 'auto';
             }
         }
-
         hamburger.addEventListener('click', toggleMenu);
 
-        // Scroll Reveal Animation
+        // 2. 3D Tilt Effect for Hero Image (Desktop Only)
+        const tiltCard = document.getElementById('tiltCard');
+        const heroSection = document.getElementById('hero');
+
+        if (window.matchMedia("(min-width: 900px)").matches) {
+            heroSection.addEventListener('mousemove', (e) => {
+                const { offsetWidth: width, offsetHeight: height } = heroSection;
+                const { offsetX: x, offsetY: y } = e; // Relative to section
+                
+                // Calculate rotation (center is 0)
+                const xRotation = ((y / height) - 0.5) * -20; // Rotate X axis based on Y position
+                const yRotation = ((x / width) - 0.5) * 20;  // Rotate Y axis based on X position
+
+                tiltCard.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+            });
+
+            // Reset on leave
+            heroSection.addEventListener('mouseleave', () => {
+                tiltCard.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+            });
+        }
+
+        // 3. Scroll Progress Bar
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+
+        // 4. Number Counter Animation
+        const counters = document.querySelectorAll('.stat-item h3');
+        const speed = 200;
+
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target + "+";
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        // 5. Scroll Reveal (Intersection Observer)
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
+                    // Trigger counters only when stats section appears
+                    if(entry.target.querySelector('.stat-item')) {
+                        animateCounters();
+                    }
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.15 });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
