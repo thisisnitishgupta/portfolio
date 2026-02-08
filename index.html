@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAP FICO Consultant Portfolio</title>
+    <title>Nitish Gupta: SAP FICO Consultant Portfolio</title>
     <meta name="description" content="Portfolio of a Senior SAP FICO Consultant specializing in S/4HANA, Implementations, and Rollouts.">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts: Inter for clean, professional corporate look -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         /* --- VARIABLES --- */
         :root {
             /* Light Theme Palette */
-            --bg-body: #f8fafc;        /* Very light slate */
+            --bg-body: #f8fafc;
             --bg-white: #ffffff;
-            --primary: #0056b3;        /* Classic SAP/Corporate Blue */
+            --primary: #0056b3;
             --primary-dark: #004494;
-            --accent: #0ea5e9;         /* Sky Blue for highlights */
-            --text-main: #1e293b;      /* Dark Slate */
-            --text-muted: #64748b;     /* Grey text */
+            --accent: #0ea5e9;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
             --border: #e2e8f0;
             --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
             --radius: 12px;
-            --container-width: 1200px;
+            --container-width: 1100px; /* Slightly narrower for better padding on desktop */
+            --nav-height: 80px;
         }
 
         /* --- RESET --- */
@@ -37,10 +38,10 @@
             background-color: var(--bg-body);
             color: var(--text-main);
             line-height: 1.6;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevents horizontal scroll on mobile */
         }
 
-        h1, h2, h3, h4 { color: var(--text-main); line-height: 1.2; }
+        h1, h2, h3, h4 { color: var(--text-main); line-height: 1.2; margin-bottom: 10px; }
         a { text-decoration: none; color: inherit; transition: 0.3s ease; }
         ul { list-style: none; }
         img { max-width: 100%; display: block; }
@@ -52,14 +53,15 @@
             padding: 0 24px;
         }
 
-        .section-padding { padding: 100px 0; }
-        
-        .text-primary { color: var(--primary); }
+        .section-padding { padding: 80px 0; } /* Reduced top/bottom padding for mobile */
         .text-center { text-align: center; }
+        .text-primary { color: var(--primary); }
 
+        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
             padding: 14px 32px;
             border-radius: 50px;
@@ -68,6 +70,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             border: 2px solid transparent;
+            width: fit-content; /* Default width */
         }
 
         .btn-primary {
@@ -79,7 +82,6 @@
         .btn-primary:hover {
             background-color: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 86, 179, 0.4);
         }
 
         .btn-outline {
@@ -95,14 +97,14 @@
 
         /* --- HEADER --- */
         header {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid var(--border);
-            height: 80px;
+            height: var(--nav-height);
             display: flex;
             align-items: center;
         }
@@ -119,22 +121,35 @@
             font-weight: 800;
             color: var(--primary);
             letter-spacing: -0.5px;
+            z-index: 1002; /* Ensure logo is above mobile menu overlay */
         }
 
-        .nav-links { display: flex; gap: 40px; }
+        .nav-links { 
+            display: flex; 
+            gap: 40px; 
+        }
+
         .nav-links a {
             font-weight: 500;
             color: var(--text-muted);
-            position: relative;
+            font-size: 1rem;
         }
+
         .nav-links a:hover, .nav-links a.active { color: var(--primary); }
         
-        .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-main); }
+        /* Mobile Hamburger */
+        .hamburger { 
+            display: none; 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+            color: var(--text-main);
+            z-index: 1002;
+        }
 
         /* --- HERO SECTION --- */
         #hero {
-            padding-top: 160px;
-            padding-bottom: 100px;
+            padding-top: calc(var(--nav-height) + 40px);
+            padding-bottom: 60px;
             background: radial-gradient(circle at top right, #e0f2fe 0%, transparent 40%);
         }
 
@@ -150,71 +165,72 @@
             font-weight: 800;
             margin-bottom: 20px;
             color: #0f172a;
+            line-height: 1.1;
         }
 
-        .hero-content h1 span { color: var(--primary); }
-
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
             margin-bottom: 30px;
             max-width: 500px;
         }
 
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
         .hero-stats {
             display: flex;
             gap: 40px;
-            margin-top: 40px;
-            padding-top: 30px;
+            padding-top: 20px;
             border-top: 1px solid var(--border);
         }
 
-        .stat h4 { font-size: 2rem; color: var(--primary); font-weight: 700; }
+        .stat h4 { font-size: 1.8rem; color: var(--primary); font-weight: 700; }
         .stat p { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
 
-        /* Hero Image with Floating Animation */
+        /* Hero Image */
         .hero-img-box {
             position: relative;
             display: flex;
             justify-content: center;
         }
         .hero-img {
-            width: 400px;
-            height: 500px;
-            object-fit: cover;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
             border-radius: 20px;
             box-shadow: var(--shadow);
             z-index: 2;
             animation: float 6s ease-in-out infinite;
         }
-        /* Decorative background shapes */
         .shape {
             position: absolute;
             border-radius: 50%;
             z-index: 1;
             opacity: 0.5;
         }
-        .shape-1 { width: 300px; height: 300px; background: #bae6fd; bottom: -20px; right: 20px; z-index: 1; }
-        .shape-2 { width: 100px; height: 100px; background: var(--primary); top: 40px; left: 20px; z-index: 3; border-radius: 12px; opacity: 0.1; }
+        .shape-1 { width: 250px; height: 250px; background: #bae6fd; bottom: -20px; right: 0; z-index: 1; }
+        .shape-2 { width: 80px; height: 80px; background: var(--primary); top: 20px; left: 20px; z-index: 3; border-radius: 12px; opacity: 0.1; }
 
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-15px); }
             100% { transform: translateY(0px); }
         }
 
         /* --- SKILLS SECTION --- */
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        .section-title h2 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; }
-        .section-title p { color: var(--text-muted); }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 10px; }
+        .section-title p { color: var(--text-muted); font-size: 1rem; }
 
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 25px;
         }
 
         .skill-card {
@@ -224,12 +240,13 @@
             box-shadow: var(--shadow);
             border: 1px solid var(--border);
             transition: 0.3s;
+            height: 100%; /* Ensure equal height */
         }
 
         .skill-card:hover { transform: translateY(-5px); border-color: var(--primary); }
 
         .skill-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
@@ -238,21 +255,18 @@
         }
 
         .skill-list li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* Align top for wrapped text */
             gap: 10px;
             color: var(--text-main);
             font-weight: 500;
+            font-size: 0.95rem;
         }
-        .skill-list li i { color: var(--accent); font-size: 0.8rem; }
+        .skill-list li i { color: var(--accent); font-size: 0.8rem; margin-top: 4px; }
 
-        /* --- EXPERIENCE TIMELINE --- */
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        /* --- TIMELINE --- */
+        .timeline { position: relative; max-width: 900px; margin: 0 auto; }
         
         /* Vertical Line */
         .timeline::after {
@@ -271,28 +285,27 @@
             position: relative;
             background-color: inherit;
             width: 50%;
-            box-sizing: border-box;
         }
 
         .timeline-item::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
+            width: 18px;
+            height: 18px;
+            right: -9px;
             background-color: var(--bg-white);
             border: 4px solid var(--primary);
-            top: 25px;
+            top: 20px;
             border-radius: 50%;
             z-index: 1;
         }
 
-        .left { left: 0; }
+        .left { left: 0; text-align: right; }
         .right { left: 50%; }
-        .right::after { left: -10px; }
+        .right::after { left: -9px; }
 
         .timeline-content {
-            padding: 30px;
+            padding: 25px;
             background-color: var(--bg-white);
             position: relative;
             border-radius: var(--radius);
@@ -301,30 +314,42 @@
         }
 
         .timeline-date {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 700;
             color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: block;
         }
 
-        .timeline-content h3 { font-size: 1.3rem; margin-bottom: 5px; }
-        .timeline-content h4 { font-size: 1rem; color: var(--text-muted); font-weight: 500; margin-bottom: 15px; }
-        .timeline-content ul { padding-left: 20px; list-style: disc; color: var(--text-muted); }
-        .timeline-content li { margin-bottom: 8px; }
+        .timeline-content h3 { font-size: 1.2rem; margin-bottom: 2px; }
+        .timeline-content h4 { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; margin-bottom: 12px; }
+        .timeline-content ul { padding-left: 0; list-style: none; color: var(--text-muted); text-align: left; }
+        .timeline-content li { 
+            margin-bottom: 6px; 
+            position: relative; 
+            padding-left: 15px;
+            font-size: 0.9rem;
+        }
+        /* Custom bullet points for timeline list */
+        .timeline-content li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
 
         /* --- CERTIFICATIONS --- */
         .cert-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
         }
         .cert-badge {
             background: white;
-            padding: 15px 30px;
+            padding: 12px 25px;
             border-radius: 50px;
             border: 1px solid var(--border);
             font-weight: 600;
@@ -332,24 +357,28 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            font-size: 0.9rem;
             transition: 0.3s;
+            width: 100%; /* Full width on mobile */
+            max-width: 300px;
+            justify-content: center;
         }
         .cert-badge:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-3px); }
-        .cert-badge i { font-size: 1.2rem; color: var(--accent); }
+        .cert-badge i { font-size: 1.1rem; color: var(--accent); }
 
         /* --- CONTACT --- */
         #contact { background-color: var(--bg-white); }
         .contact-card {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 60px;
+            padding: 50px 30px;
             border-radius: 20px;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0, 86, 179, 0.2);
         }
-        .contact-card h2 { color: white; margin-bottom: 20px; }
-        .contact-card p { opacity: 0.9; margin-bottom: 30px; font-size: 1.1rem; }
+        .contact-card h2 { color: white; margin-bottom: 15px; font-size: 1.8rem; }
+        .contact-card p { opacity: 0.9; margin-bottom: 30px; font-size: 1rem; }
         .contact-btn {
             background: white;
             color: var(--primary);
@@ -357,47 +386,81 @@
             border-radius: 50px;
             font-weight: 700;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            width: 100%; /* Full width mobile */
+            max-width: 300px;
         }
-        .contact-btn:hover { transform: scale(1.05); }
+        .contact-btn:hover { transform: scale(1.02); }
 
         /* --- FOOTER --- */
         footer {
             background-color: #1e293b;
             color: #94a3b8;
-            padding: 40px 0;
+            padding: 30px 0;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        /* --- RESPONSIVE --- */
+        /* --- MOBILE OPTIMIZATION (< 768px) --- */
         @media screen and (max-width: 768px) {
-            .hero-wrapper { grid-template-columns: 1fr; text-align: center; }
-            .hero-content h1 { font-size: 2.5rem; }
-            .hero-stats { justify-content: center; }
-            .hero-img { width: 300px; height: 380px; margin: 0 auto; }
-            
+            :root {
+                --nav-height: 70px;
+            }
+
+            /* 1. Navigation */
             .nav-links {
                 position: fixed;
-                top: 80px; left: 0; width: 100%;
-                background: white;
+                top: 0; right: 0;
+                width: 75%; /* Slide out menu */
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
                 flex-direction: column;
-                padding: 30px;
-                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
-                transform: translateY(-150%);
-                transition: 0.4s;
-                z-index: 999;
+                justify-content: center;
+                align-items: center;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transform: translateX(100%);
+                transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+                z-index: 1001;
             }
-            .nav-links.active { transform: translateY(0); }
+
+            .nav-links.active { transform: translateX(0); }
+            .nav-links a { font-size: 1.2rem; margin: 15px 0; }
             .hamburger { display: block; }
 
-            /* Timeline Mobile */
-            .timeline::after { left: 31px; }
-            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
-            .timeline-item::after { left: 21px; }
-            .left::after, .right::after { left: 21px; }
-            .right { left: 0%; }
+            /* 2. Hero Section */
+            .hero-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-subtitle { margin: 0 auto 30px auto; }
+            .hero-buttons { justify-content: center; }
+            .btn { width: 100%; /* Full width buttons on mobile */ max-width: 280px; }
+            
+            .hero-stats {
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            .stat { flex: 1 1 40%; } /* Stats take up half width on small screens */
+
+            /* 3. Timeline (Left Aligned for Mobile) */
+            .timeline::after { left: 20px; } /* Move line to left */
+            .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; }
+            .timeline-item::after { left: 11px; } /* Move dot to left */
+            .timeline-item.left, .timeline-item.right { left: 0; text-align: left; }
+            .timeline-item.left::after, .timeline-item.right::after { left: 11px; }
+
+            /* 4. Skills */
+            .skills-grid { grid-template-columns: 1fr; } /* 1 column stack */
+            .skill-card { padding: 20px; }
+
+            /* 5. Certs */
+            .cert-grid { flex-direction: column; }
+            .cert-badge { width: 100%; max-width: none; }
         }
-        
+
         /* Scroll Animation Utility */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -409,7 +472,7 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Nitish <span class="text-primary">Gupta</span>.</div>
+                <div class="logo">Nitish<span class="text-primary">Gupta</span>. </div>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#hero" onclick="toggleMenu()">Home</a></li>
                     <li><a href="#about" onclick="toggleMenu()">About</a></li>
@@ -430,26 +493,26 @@
             <div class="container">
                 <div class="hero-wrapper">
                     <div class="hero-content reveal">
-                        <span style="color: var(--primary); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 0.9rem;">SAP FICO Consultant</span>
-                        <h1>Optimizing Financial <br><span>Processes & Systems</span></h1>
+                        <span style="color: var(--primary); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem;">SAP FICO Consultant</span>
+                        <h1>Optimizing Financial <br><span class="text-primary">Processes & Systems</span></h1>
                         <p class="hero-subtitle">Expert in End-to-End Implementations, S/4HANA Migrations, and Business Process Re-engineering for global enterprises.</p>
                         
-                        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: flex-start;">
+                        <div class="hero-buttons">
                             <a href="#contact" class="btn btn-primary">Hire Me <i class="fas fa-arrow-right"></i></a>
-                            <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Download CV</a>
+                            <a href="https://github.com/thisisnitishgupta/portfolio/blob/main/Nitish%20Kumar%20Gupta%20-%20SAP%20FICO%20Consultant%20Resume.pdf" class="btn btn-outline"><i class="fas fa-download"></i> Download CV</a>
                         </div>
 
                         <div class="hero-stats">
                             <div class="stat">
-                                <h4>8+</h4>
+                                <h4>4+</h4>
                                 <p>Years Exp.</p>
                             </div>
                             <div class="stat">
-                                <h4>15+</h4>
+                                <h4>3+</h4>
                                 <p>Projects</p>
                             </div>
                             <div class="stat">
-                                <h4>5</h4>
+                                <h4>2</h4>
                                 <p>Certifications</p>
                             </div>
                         </div>
@@ -459,7 +522,7 @@
                         <div class="shape shape-1"></div>
                         <div class="shape shape-2"></div>
                         <!-- REPLACE WITH YOUR PROFESSIONAL PHOTO -->
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Consultant Profile" class="hero-img">
+                        <img src="https://github.com/thisisnitishgupta/portfolio/blob/main/photo.jpeg?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Consultant Profile" class="hero-img">
                     </div>
                 </div>
             </div>
@@ -473,11 +536,8 @@
                     <p>Driving digital transformation in Finance & Controlling</p>
                 </div>
                 <div style="max-width: 800px; margin: 0 auto; text-align: center;" class="reveal">
-                    <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px;">
-                        I am a result-oriented SAP FICO Consultant with over 8 years of experience in designing, implementing, and supporting financial solutions. My expertise lies in bridging the gap between business requirements and technical configuration within the SAP ecosystem.
-                    </p>
-                    <p style="font-size: 1.1rem; color: var(--text-muted);">
-                        I have successfully led multiple Full Life Cycle Implementations (FLCI) and Rollouts across various industries including Manufacturing, Oil & Gas, and Retail. I specialize in S/4HANA migration, New GL configuration, and Management Accounting (CO).
+                    <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px;">
+                        SAP Certified FICO Consultant with 4.5+ years of total SAP experience, specializing in SAP Finance (FI) with strong exposure across system upgrades, data migration, and AMS support projects. Strong hands-on experience in GL, AP, AR, Asset Accounting, Bank Accounting, Cost Center Accounting, and CO integrations. Proven ability to handle end-to-end data migration, system decommissioning, and interface dependency analysis, UAT/regression testing, and stakeholder coordination in global delivery environments.
                     </p>
                 </div>
             </div>
@@ -500,7 +560,7 @@
                             <li><i class="fas fa-check-circle"></i> Accounts Payable (AP) & Receivable (AR)</li>
                             <li><i class="fas fa-check-circle"></i> Asset Accounting (AA)</li>
                             <li><i class="fas fa-check-circle"></i> Bank Management & Cash Management</li>
-                            <li><i class="fas fa-check-circle"></i> Document Splitting & Parallel Valuation</li>
+                            <li><i class="fas fa-check-circle"></i> Document Splitting</li>
                             <li><i class="fas fa-check-circle"></i> Dunning & Correspondence</li>
                         </ul>
                     </div>
@@ -527,7 +587,7 @@
                             <li><i class="fas fa-check-circle"></i> Integration with SD, MM, PP</li>
                             <li><i class="fas fa-check-circle"></i> Fiori Apps for Finance</li>
                             <li><i class="fas fa-check-circle"></i> SAP Business Objects (BO)</li>
-                            <li><i class="fas fa-check-circle"></i> LSMW / Data Migration Workbench</li>
+                            <li><i class="fas fa-check-circle"></i> LSMW / Data Migration</li>
                         </ul>
                     </div>
                 </div>
@@ -611,10 +671,10 @@
                 <div class="contact-card reveal">
                     <h2>Ready to Optimize Your Finance Processes?</h2>
                     <p>I am currently available for new projects and consulting opportunities. Let's discuss how I can add value to your SAP landscape.</p>
-                    <a href="mailto:email@example.com" class="contact-btn">Get In Touch</a>
+                    <a href="mailto:kkumarnitish61@gmail.com" class="contact-btn">Get In Touch</a>
                     
                     <div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px;">
-                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/in/nitishkg/" style="color: white; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
                         <a href="#" style="color: white; font-size: 1.5rem;"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
@@ -635,15 +695,18 @@
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         const icon = hamburger.querySelector('i');
+        const links = document.querySelectorAll('.nav-links a');
 
         function toggleMenu() {
             navLinks.classList.toggle('active');
             if(navLinks.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
+                document.body.style.overflow = 'hidden'; // Stop scrolling when menu is open
             } else {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
+                document.body.style.overflow = 'auto'; // Resume scrolling
             }
         }
 
