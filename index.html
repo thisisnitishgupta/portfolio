@@ -34,7 +34,7 @@
       background-color: var(--bg);
       color: var(--fg);
       line-height: 1.6;
-      padding-top: 40px; /* Space for status banner */
+      padding-top: 40px;
       transition: padding-top 0.3s ease;
     }
 
@@ -63,7 +63,7 @@
         transform: none;
         transition: none;
       }
-      .animate-float, .animate-pulse-slow {
+      .animate-float {
         animation: none;
       }
     }
@@ -76,11 +76,6 @@
     .animate-float {
       animation: float 6s ease-in-out infinite;
     }
-
-    .stagger-1 { transition-delay: 0.1s; }
-    .stagger-2 { transition-delay: 0.2s; }
-    .stagger-3 { transition-delay: 0.3s; }
-    .stagger-4 { transition-delay: 0.4s; }
 
     a:focus-visible, button:focus-visible, input:focus-visible {
       outline: 2px solid var(--accent);
@@ -98,10 +93,6 @@
     ::-webkit-scrollbar-thumb {
       background: var(--border);
       border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--muted);
     }
 
     .bg-pattern {
@@ -170,7 +161,6 @@
       transform: scale(1.3);
     }
 
-    /* Status Banner */
     .status-banner {
       position: fixed;
       top: 0;
@@ -204,7 +194,6 @@
       50% { opacity: 0.7; transform: scale(1.2); }
     }
 
-    /* Adjust header for status banner */
     header {
       top: 40px !important;
       transition: top 0.3s ease;
@@ -214,20 +203,8 @@
       top: 0 !important;
     }
     
-    /* Mobile Filter Wrap Fix */
     .filter-container {
         flex-wrap: wrap;
-    }
-    
-    /* Skill Dots */
-    .skill-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--border);
-    }
-    .skill-dot.active {
-        background: var(--accent);
     }
   </style>
 </head>
@@ -257,7 +234,7 @@
   <header class="fixed top-0 left-0 right-0 z-50 bg-[var(--bg)]/90 backdrop-blur-md border-b border-[var(--border)]">
     <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="#" class="font-display text-xl font-medium tracking-tight" style="color: var(--fg);">
-        Nitish Gupta
+        Alexandra Chen
       </a>
       
       <div class="hidden md:flex items-center gap-8">
@@ -313,7 +290,6 @@
               </a>
             </div>
             
-            <!-- Quick Stats -->
             <div class="flex gap-8 mt-10 pt-8 border-t border-[var(--border)]">
               <div>
                 <p class="font-display text-3xl font-medium" style="color: var(--fg);">24+</p>
@@ -330,7 +306,6 @@
             </div>
           </div>
           
-          <!-- Featured Project Card -->
           <div class="relative reveal stagger-2">
             <div class="absolute -top-8 -left-8 w-32 h-40 rounded-xl border border-[var(--border)] bg-[var(--card)] shadow-lg animate-float opacity-60" style="animation-delay: 0s;"></div>
             <div class="absolute -bottom-4 -right-4 w-28 h-36 rounded-xl border border-[var(--border)] bg-[var(--card)] shadow-lg animate-float opacity-40" style="animation-delay: 1.5s;"></div>
@@ -533,7 +508,6 @@
               Key implementations and transformations across industries.
             </p>
           </div>
-          <!-- Mobile Fix: Added flex-wrap -->
           <div class="flex gap-2 filter-container">
             <button class="project-filter active px-4 py-2 rounded-lg text-sm font-medium transition-all" data-filter="all" style="background: var(--accent); color: white;">
               All
@@ -551,7 +525,6 @@
         </div>
         
         <div class="grid gap-8" id="projects-grid">
-          <!-- Project 1 -->
           <article class="reveal project-item card-hover rounded-2xl border border-[var(--border)] bg-[var(--card)] overflow-hidden grid md:grid-cols-2" data-category="s4hana">
             <div class="h-48 md:h-auto relative" style="background: linear-gradient(135deg, #6B8E6B, #4A6B4A);">
               <div class="absolute inset-0 flex items-center justify-center">
@@ -598,7 +571,6 @@
             </div>
           </article>
           
-          <!-- Project 2 -->
           <article class="reveal stagger-1 project-item card-hover rounded-2xl border border-[var(--border)] bg-[var(--card)] overflow-hidden grid md:grid-cols-2" data-category="rollout">
             <div class="h-48 md:h-auto relative order-2 md:order-1" style="background: linear-gradient(135deg, #8B9A7D, #6B8E6B);">
               <div class="absolute inset-0 flex items-center justify-center">
@@ -645,7 +617,6 @@
             </div>
           </article>
           
-          <!-- Project 3 -->
           <article class="reveal stagger-2 project-item card-hover rounded-2xl border border-[var(--border)] bg-[var(--card)] overflow-hidden grid md:grid-cols-2" data-category="optimization">
             <div class="h-48 md:h-auto relative" style="background: linear-gradient(135deg, #B8A890, #967D5A);">
               <div class="absolute inset-0 flex items-center justify-center">
@@ -695,7 +666,7 @@
       </div>
     </section>
 
-    <!-- Technical Proficiency Section (Unique Layout) -->
+    <!-- Technical Proficiency Section (Clean Layout) -->
     <section id="skills" class="py-24 relative">
       <div class="max-w-6xl mx-auto px-6">
         <div class="reveal mb-16">
@@ -726,7 +697,6 @@
         </div>
         
         <div class="grid lg:grid-cols-3 gap-12">
-          <!-- Certifications -->
           <div class="reveal">
             <h3 class="font-display text-xl font-medium mb-6" style="color: var(--fg);">SAP Certifications</h3>
             <div class="space-y-4" id="certifications-list">
@@ -734,7 +704,6 @@
             </div>
           </div>
           
-          <!-- Career Timeline -->
           <div class="reveal stagger-1">
             <h3 class="font-display text-xl font-medium mb-6" style="color: var(--fg);">Career Timeline</h3>
             <div class="relative" id="career-timeline">
@@ -742,7 +711,6 @@
             </div>
           </div>
           
-          <!-- Education -->
           <div class="reveal stagger-2">
             <h3 class="font-display text-xl font-medium mb-6" style="color: var(--fg);">Education</h3>
             <div class="relative" id="education-timeline">
@@ -859,12 +827,12 @@
   <script>
     // Data
     const skills = [
-      { name: 'Financial Accounting (FI)', level: 5, subskills: ['General Ledger', 'AP/AR', 'Asset Accounting', 'Bank Accounting'] },
-      { name: 'Controlling (CO)', level: 5, subskills: ['Cost Center Accounting', 'Product Costing', 'Profitability Analysis', 'Internal Orders'] },
-      { name: 'S/4HANA Finance', level: 4, subskills: ['Greenfield Implementation', 'Brownfield Conversion', 'Fiori Activation', 'Universal Journal'] },
-      { name: 'Integration Modules', level: 4, subskills: ['MM-FI Integration', 'SD-FI Integration', 'PS Integration', 'PP Integration'] },
-      { name: 'Treasury & Cash Mgmt', level: 3, subskills: ['Cash Management', 'Bank Communication', 'Liquidity Planning'] },
-      { name: 'Technical Skills', level: 3, subskills: ['ABAP Debugging', 'SAP Query', 'LSMW', ' Fiori Configuration'] }
+      { name: 'Financial Accounting (FI)', subskills: ['General Ledger', 'AP/AR', 'Asset Accounting', 'Bank Accounting'] },
+      { name: 'Controlling (CO)', subskills: ['Cost Center Accounting', 'Product Costing', 'Profitability Analysis', 'Internal Orders'] },
+      { name: 'S/4HANA Finance', subskills: ['Greenfield Implementation', 'Brownfield Conversion', 'Fiori Activation', 'Universal Journal'] },
+      { name: 'Integration Modules', subskills: ['MM-FI Integration', 'SD-FI Integration', 'PS Integration', 'PP Integration'] },
+      { name: 'Treasury & Cash Mgmt', subskills: ['Cash Management', 'Bank Communication', 'Liquidity Planning'] },
+      { name: 'Technical Skills', subskills: ['ABAP Debugging', 'SAP Query', 'LSMW', 'Fiori Configuration'] }
     ];
 
     const certifications = [
@@ -970,40 +938,20 @@
       });
     }
 
-    // Skill Cards (Unique Layout)
+    // Skill Cards (Clean Layout)
     function initSkillCards() {
       const container = document.getElementById('skills-container');
       if (!container) return;
-
-      const levelLabels = ['', 'Foundational', 'Developing', 'Proficient', 'Advanced', 'Expert'];
       
       skills.forEach(skill => {
         const card = document.createElement('div');
-        card.className = 'reveal card-hover rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 flex flex-col';
+        card.className = 'reveal card-hover rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6';
         
-        // Create dots
-        let dotsHtml = '';
-        for(let i=1; i<=5; i++) {
-          dotsHtml += `<div class="skill-dot ${i <= skill.level ? 'active' : ''}"></div>`;
-        }
-
         card.innerHTML = `
-          <div class="flex justify-between items-start mb-4">
-            <h3 class="font-display text-lg font-medium" style="color: var(--fg);">${skill.name}</h3>
-            <span class="text-xs font-medium px-2 py-1 rounded" style="background: var(--bg-secondary); color: var(--accent);">
-              ${levelLabels[skill.level]}
-            </span>
-          </div>
-          
-          <div class="flex gap-1.5 mb-4">
-            ${dotsHtml}
-          </div>
-          
-          <div class="flex flex-wrap gap-2 mt-auto pt-2 border-t border-[var(--border)]">
-            ${skill.subskills.map(sub => `
-              <span class="text-xs px-2 py-1 rounded" style="background: var(--bg-tertiary); color: var(--fg-secondary);">${sub}</span>
-            `).join('')}
-          </div>
+          <h3 class="font-display text-lg font-medium mb-3" style="color: var(--fg);">${skill.name}</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--muted);">
+            ${skill.subskills.join(' • ')}
+          </p>
         `;
         
         container.appendChild(card);
